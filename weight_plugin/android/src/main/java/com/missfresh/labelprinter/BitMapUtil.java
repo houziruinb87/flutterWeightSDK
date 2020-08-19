@@ -296,9 +296,9 @@ public class BitMapUtil {
         if (spec != null) {
             canvas.drawText(spec, 4 * subTitleTextSize+ marginLeft6, line1Height, contentTextPaint);
         }
-        canvas.drawText("净        重", (int) (maxWidth / 2) , line1Height, subTitlePaint);
+        canvas.drawText("净重", (int) (maxWidth / 2) , line1Height, subTitlePaint);
         if (netWeight != null) {
-            canvas.drawText(netWeight, (int) (maxWidth / 2)  + (4 * subTitleTextSize)+ marginLeft6, line1Height, contentTextPaint);
+            canvas.drawText(netWeight, (int) (maxWidth / 2)  + (2 * subTitleTextSize)+ marginLeft6, line1Height, contentTextPaint);
         }
         //第二行
         int line2Height = dashLineHeight + textLineHeight * 2;
@@ -314,19 +314,19 @@ public class BitMapUtil {
         }
         //第四行
         int line4Height = dashLineHeight + textLineHeight * 4;
-        canvas.drawText(" S         N", 0, line4Height, subTitlePaint);
+        canvas.drawText("S  N编码", 0, line4Height, subTitlePaint);
         if (SNCode != null) {
             canvas.drawText(SNCode, 4 * subTitleTextSize+ marginLeft6, line4Height, contentTextPaint);
         }
         //第五行
         int line5Height = dashLineHeight + textLineHeight * 5;
-        canvas.drawText("原        料", 0, line5Height, subTitlePaint);
+        canvas.drawText("原料编码", 0, line5Height, subTitlePaint);
         if (materialCode != null) {
 
             canvas.drawText(materialCode, 4 * subTitleTextSize+ marginLeft6, line5Height, contentTextPaint);
         }
         int line6Height = dashLineHeight + textLineHeight * 6;
-        canvas.drawText("编        码", 0, line6Height, subTitlePaint);
+        canvas.drawText("SKU编码", 0, line6Height, subTitlePaint);
         if (SKUCode != null) {
 
             //SKUCode要进行特殊换行判断

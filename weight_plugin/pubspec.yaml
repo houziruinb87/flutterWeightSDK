@@ -1,8 +1,9 @@
 name: weight
 description: A new Flutter plugin for weight and print.
 version: 0.0.1
-author:
-homepage:
+
+homepage: https://github.com/houziruinb87/flutterWeightSDK
+repository: https://github.com/houziruinb87/flutterWeightSDK.git
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
