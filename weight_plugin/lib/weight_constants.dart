@@ -12,6 +12,16 @@ class WeightConstants{
   static const String LABEL_PRINTER_CHANNEL_PRINT_BITMAP = "label_printer_channel_print_bitmap";
   static const String LABEL_PRINTER_CHANNEL_INIT = "label_printer_channel_init";
 
+  //称重
+  //开启称重端口
+  static const  String WEIGHT_CHANNEL_OPEN = "weight_channel_open";
+  //关闭称重端口
+  static const  String WEIGHT_CHANNEL_CLOSE = "weight_channel_close";
+  //获取称重信息(RAW),返回String
+  static const  String WEIGHT_CHANNEL_GET_RAW_WEIGHT_MESSAGE = "weight_channel_get_raw_weight_message";
+  //称重归零
+  static const  String WEIGHT_CHANNEL_SET_ZERO = "weight_channel_set_zero";
+
   /*************参数名称****************/
   static const String WEIGHT_PARAM_MODEL = "WEIGHT_PARAM_MODEL";
   static const String WEIGHT_PARAM_STATUS = "WEIGHT_PARAM_STATUS";
@@ -37,7 +47,19 @@ class WeightConstants{
   static const String PRINT_PARAM_MATERIAL_CODE = "PRINT_PARAM_MATERIAL_CODE";
   //sku编码
   static const String PRINT_PARAM_SKU_CODE = "PRINT_PARAM_SKU_CODE";
-  //包裹号
+  //包裹号(SN)
   static const String PRINT_PARAM_PACKAGE_NUM = "PRINT_PARAM_PACKAGE_NUM";
+
+
+
+ // 秤状态  Flow:溢出
+  static const String WEIGHT_MODE_FLOW = "Flow";
+ // Stable:稳定
+  static const String WEIGHT_MODE_STABLE = "Stable";
+  // UnStable:不稳定
+  static const String WEIGHT_MODE_UNSTABLE = "UnStable";
+  // Error:异常
+  static const String WEIGHT_MODE_ERROR = "Error";
+
 
 }

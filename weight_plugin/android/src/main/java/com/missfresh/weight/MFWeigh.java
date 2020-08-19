@@ -1,7 +1,6 @@
 package com.missfresh.weight;
 
 import android.content.Context;
-import android.util.Log;
 
 import java.io.File;
 
@@ -60,7 +59,20 @@ public class MFWeigh {
                 weightData.setModel(weightInfo.getMode());
                 weightData.setNetWeight(weightInfo.getNetWeight());
                 weightData.setStatus(weightInfo.getStatus());
-                weightData.setUnit(weightInfo.getUnit());
+                if(weightInfo.getUnit().equals("kg")){
+                    weightData.setUnit("g");
+                    try {
+                        float floatKg = Float.parseFloat(weightInfo.getNetWeight());
+                        int intG = (int) (floatKg*1000);
+                        weightData.setNetWeight(intG+"");
+                    }catch (Exception e){
+                        weightData.setNetWeight("0");
+                    }
+                }else {
+                    weightData.setNetWeight(weightInfo.getNetWeight());
+                    weightData.setUnit(weightInfo.getUnit());
+
+                }
                 weightData.setZero(weightInfo.getZero());
                 if (weightInfo.getStatus() != null && weightInfo.getStatus().equals("Stable")) {
                     weightData.setStable(true);
@@ -70,9 +82,8 @@ public class MFWeigh {
                 if (mOnWeightChangeListener != null) {
                     mOnWeightChangeListener.onWeightChanged(weightData);
 
-                } else {
-                    Log.i(TAG, "重量监听者没有初始化");
                 }
+
             }
         });
 
@@ -103,7 +114,20 @@ public class MFWeigh {
                 weightData.setModel(weightInfo.getMode());
                 weightData.setNetWeight(weightInfo.getNetWeight());
                 weightData.setStatus(weightInfo.getStatus());
-                weightData.setUnit(weightInfo.getUnit());
+                if(weightInfo.getUnit().equals("kg")){
+                    weightData.setUnit("g");
+                    try {
+                        float floatKg = Float.parseFloat(weightInfo.getNetWeight());
+                        int intG = (int) (floatKg*1000);
+                        weightData.setNetWeight(intG+"");
+                    }catch (Exception e){
+                        weightData.setNetWeight("0");
+                    }
+                }else {
+                    weightData.setNetWeight(weightInfo.getNetWeight());
+                    weightData.setUnit(weightInfo.getUnit());
+
+                }
                 weightData.setZero(weightInfo.getZero());
                 if (weightInfo.getStatus() != null && weightInfo.getStatus().equals("Stable")) {
                     weightData.setStable(true);
@@ -113,9 +137,8 @@ public class MFWeigh {
                 if (mOnWeightChangeListener != null) {
                     mOnWeightChangeListener.onWeightChanged(weightData);
 
-                } else {
-                    Log.i(TAG, "重量监听者没有初始化");
                 }
+
             }
         });
 
@@ -143,13 +166,17 @@ public class MFWeigh {
     /**
      * 关闭串口连接
      *
-     * @return 1, 关闭成功, 其他返回关闭失败
+     * @return true, 关闭成功, 其他返回关闭失败
      */
-    public int close() {
+    public boolean close() {
         if (mScalesSDK != null) {
-            return mScalesSDK.Close();
+            if(mScalesSDK.Close() == 1){
+                return true;
+            }else {
+                return false;
+            }
         } else {
-            return -1;
+            return false;
         }
     }
 

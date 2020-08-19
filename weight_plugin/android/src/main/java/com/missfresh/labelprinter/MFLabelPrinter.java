@@ -151,16 +151,16 @@ public class MFLabelPrinter {
      * @param storeCondition 存储条件
      * @param materialCode 原料编码
      * @param SKUCode sku编码
-     * @param packageNum 包裹号
+     * @param SNCode 包裹号
      * @return 打印是否成功
      */
-    public boolean printBitmap(String title, String spec, String netWeight, String time, String storeCondition, String materialCode, String SKUCode, String packageNum){
+    public boolean printBitmap(String title, String spec, String netWeight, String time, String storeCondition, String materialCode, String SKUCode, String SNCode){
        if(mContext!=null){
            int printerStatus = mLabelPrinter.GetStatus();
            if(printerStatus != 0){
                return false;
            }else {
-               return   mLabelPrinter.PrintLabelBitmap( BitMapUtil.createBitmap(mContext,"442","212","654"));
+               return   mLabelPrinter.PrintLabelBitmap( BitMapUtil.createBitmap(mContext,title,spec,netWeight,time,storeCondition,SNCode,materialCode,SKUCode));
            }
        }else {
            return false;

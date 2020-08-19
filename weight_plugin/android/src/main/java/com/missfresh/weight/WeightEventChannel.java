@@ -1,6 +1,8 @@
 package com.missfresh.weight;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 
 import java.util.HashMap;
 
@@ -21,8 +23,11 @@ public class WeightEventChannel implements EventChannel.StreamHandler,OnWeightCh
     private Context mContext;
     private BinaryMessenger mBinaryMessenger;
     private EventChannel sWeightEventChannel;
-    private EventChannel.EventSink mEventSink;
+    private static EventChannel.EventSink mEventSink;
+    private static   HashMap<String, Object> objectObjectHashMap =new HashMap<>();
+    private WeightEventChannelHandler mHandler;
     public WeightEventChannel(Context context, BinaryMessenger messenger) {
+        mHandler = new WeightEventChannelHandler();
         MFWeigh.getInstance().setOnWeightChangeListener(this);
         mContext = context;
         this.mBinaryMessenger = messenger;
@@ -43,7 +48,7 @@ public class WeightEventChannel implements EventChannel.StreamHandler,OnWeightCh
 
     @Override
     public void onWeightChanged(WeightData weightData) {
-        HashMap<String, Object> objectObjectHashMap = new HashMap<>();
+//        HashMap<String, Object> objectObjectHashMap = ;
         objectObjectHashMap.put(WEIGHT_PARAM_MODEL,weightData.getModel());
         objectObjectHashMap.put(WEIGHT_PARAM_STATUS,weightData.getStatus());
         objectObjectHashMap.put(WEIGHT_PARAM_IS_ZERO,weightData.isZero());
@@ -52,7 +57,7 @@ public class WeightEventChannel implements EventChannel.StreamHandler,OnWeightCh
         objectObjectHashMap.put(WEIGHT_PARAM_TARE_WEIGHT,weightData.getTareWeight());
         objectObjectHashMap.put(WEIGHT_PARAM_GROSS_WEIGHT,weightData.getGrossWeight());
         objectObjectHashMap.put(WEIGHT_PARAM_IS_STABLE,weightData.isStable());
-        mEventSink.success(objectObjectHashMap);
+        mHandler.sendEmptyMessage(0);
     }
 
     public EventChannel getsWeightEventChannel() {
@@ -62,4 +67,16 @@ public class WeightEventChannel implements EventChannel.StreamHandler,OnWeightCh
     public void setsWeightEventChannel(EventChannel sWeightEventChannel) {
         this.sWeightEventChannel = sWeightEventChannel;
     }
+
+    public static class WeightEventChannelHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if(mEventSink!=null){
+                mEventSink.success(objectObjectHashMap);
+
+            }
+        }
+    }
 }
+

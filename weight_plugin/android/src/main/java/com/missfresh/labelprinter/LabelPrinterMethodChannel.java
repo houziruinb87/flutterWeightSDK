@@ -27,7 +27,7 @@ import static com.missfresh.weight.WeightConstants.PRINT_PARAM_TIME;
 import static com.missfresh.weight.WeightConstants.PRINT_PARAM_TITLE;
 
 /**
- * 称重通信渠道
+ *打印通信渠道
  */
 public class LabelPrinterMethodChannel implements MethodChannel.MethodCallHandler {
     private Context mContext;
@@ -53,18 +53,23 @@ public class LabelPrinterMethodChannel implements MethodChannel.MethodCallHandle
     @Override
     public void onMethodCall(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
         Log.i("nb","onMethodCall");
-
+//打印
         if (methodCall.method.equals(LABEL_PRINTER_CHANNEL_PRINT_BITMAP)) {
 
             if(methodCall.hasArgument(PRINT_PARAM_MAP)){
                HashMap<String,String> arguments = methodCall.argument(PRINT_PARAM_MAP);
-                MFLabelPrinter.getInstance().printBitmap(arguments.get(PRINT_PARAM_TITLE),arguments.get(PRINT_PARAM_SPEC),arguments.get(PRINT_PARAM_NET_WEIGHT),arguments.get(PRINT_PARAM_TIME),arguments.get(PRINT_PARAM_STORE_CONDITION),arguments.get(PRINT_PARAM_MATERIAL_CODE),arguments.get(PRINT_PARAM_SKU_CODE),arguments.get(PRINT_PARAM_PACKAGE_NUM));
+                boolean isSuccess = MFLabelPrinter.getInstance().printBitmap(arguments.get(PRINT_PARAM_TITLE), arguments.get(PRINT_PARAM_SPEC), arguments.get(PRINT_PARAM_NET_WEIGHT), arguments.get(PRINT_PARAM_TIME), arguments.get(PRINT_PARAM_STORE_CONDITION), arguments.get(PRINT_PARAM_MATERIAL_CODE), arguments.get(PRINT_PARAM_SKU_CODE), arguments.get(PRINT_PARAM_PACKAGE_NUM));
+                result.success(isSuccess);
             }
-        } else if (methodCall.method.equals(LABEL_CHANNEL_GET_INT_PRINT_STATUS)) {
+        }
+        //获取打印的int状态
+        else if (methodCall.method.equals(LABEL_CHANNEL_GET_INT_PRINT_STATUS)) {
             int intPrintStatus = MFLabelPrinter.getInstance().getIntPrintStatus();
             result.success(intPrintStatus);
 
-        } else if (methodCall.method.equals(LABEL_CHANNEL_GET_STRING_PRINT_STATUS)) {
+        }
+        //获取打印的string状态
+        else if (methodCall.method.equals(LABEL_CHANNEL_GET_STRING_PRINT_STATUS)) {
             Log.i("nb","LABEL_CHANNEL_GET_STRING_PRINT_STATUS");
 
             String stringPrintStatus = MFLabelPrinter.getInstance().getStringPrintStatus();
