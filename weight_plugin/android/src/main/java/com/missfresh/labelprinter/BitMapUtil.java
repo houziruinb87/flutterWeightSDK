@@ -21,6 +21,7 @@ import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.missfresh.weight.R;
 
 import java.util.Hashtable;
@@ -363,24 +364,39 @@ public class BitMapUtil {
     private static void drawBarCode(Bitmap bitmap, String content) {
         String character_set = "UTF-8";
         String error_correction_level = "M";
-        String margin = "0";
+        int margin = 0;
         int color_black = Color.BLACK;
         int color_white = Color.WHITE;
         try {
+//            /** 1.设置二维码相关配置 */
+//            Hashtable<EncodeHintType, String> hints = new Hashtable<>();
+//            // 字符转码格式设置
+//            if (!TextUtils.isEmpty(character_set)) {
+//                hints.put(EncodeHintType.CHARACTER_SET, character_set);
+//            }
+//            // 容错率设置
+//            if (!TextUtils.isEmpty(error_correction_level)) {
+//                hints.put(EncodeHintType.ERROR_CORRECTION, error_correction_level);
+//            }
+//            //            // 空白边距设置
+//            if (!TextUtils.isEmpty(margin)) {
+//                hints.put(EncodeHintType.MARGIN, margin);
+//            }
+
             /** 1.设置二维码相关配置 */
-            Hashtable<EncodeHintType, String> hints = new Hashtable<>();
+            Hashtable<EncodeHintType, Object> hints = new Hashtable<>();
             // 字符转码格式设置
             if (!TextUtils.isEmpty(character_set)) {
                 hints.put(EncodeHintType.CHARACTER_SET, character_set);
             }
             // 容错率设置
             if (!TextUtils.isEmpty(error_correction_level)) {
-                hints.put(EncodeHintType.ERROR_CORRECTION, error_correction_level);
+                hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.M);
             }
             //            // 空白边距设置
-            if (!TextUtils.isEmpty(margin)) {
+//            if (!TextUtils.isEmpty(margin)) {
                 hints.put(EncodeHintType.MARGIN, margin);
-            }
+//            }
             /** 2.将配置参数传入到QRCodeWriter的encode方法生成BitMatrix(位矩阵)对象 */
             BitMatrix bitMatrix = new QRCodeWriter().encode(content, BarcodeFormat.QR_CODE, barCodeWidth, barCodeHeight, hints);
 
