@@ -26,10 +26,16 @@ public class WeightPlugin implements FlutterPlugin {
     @Override
     public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
         Log.i("nb", "onAttachedToEngine");
-        MFLabelPrinter.init(flutterPluginBinding.getApplicationContext());
-        MFWeigh.init(flutterPluginBinding.getApplicationContext());
-        onAttachedToEngine(flutterPluginBinding.getApplicationContext(), flutterPluginBinding.getBinaryMessenger());
-    }
+        try {
+            MFLabelPrinter.init(flutterPluginBinding.getApplicationContext());
+            MFWeigh.init(flutterPluginBinding.getApplicationContext());
+            onAttachedToEngine(flutterPluginBinding.getApplicationContext(), flutterPluginBinding.getBinaryMessenger());
+
+        }catch (Exception e){
+            Log.e("WeightPlugin", e.getMessage());
+
+        }
+         }
 
     public void onAttachedToEngine(Context context, BinaryMessenger messenger) {
         sLabelPrinterMethodChannel = new LabelPrinterMethodChannel(context, messenger);
