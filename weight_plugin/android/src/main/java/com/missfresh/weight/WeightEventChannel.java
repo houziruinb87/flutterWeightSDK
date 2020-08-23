@@ -28,6 +28,7 @@ public class WeightEventChannel implements EventChannel.StreamHandler,OnWeightCh
     private WeightEventChannelHandler mHandler;
     public WeightEventChannel(Context context, BinaryMessenger messenger) {
         mHandler = new WeightEventChannelHandler();
+
         MFWeigh.getInstance().setOnWeightChangeListener(this);
         mContext = context;
         this.mBinaryMessenger = messenger;

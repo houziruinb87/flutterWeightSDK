@@ -27,7 +27,20 @@ public class MFWeigh {
         }
         return INSTANCE;
     }
-
+//    public static  boolean init(Context context) {
+//        synchronized (mLock) {
+//            if (null == INSTANCE) {
+//                INSTANCE = new MFWeigh(context);
+//                if(INSTANCE!=null){
+//                    return true;
+//                }else {
+//                    return false;
+//                }
+//            }else {
+//                return true;
+//            }
+//        }
+//    }
     public static MFWeigh init(Context context) {
         synchronized (mLock) {
             if (null == INSTANCE) {

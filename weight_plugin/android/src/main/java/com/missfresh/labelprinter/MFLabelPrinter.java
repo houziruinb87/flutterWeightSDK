@@ -15,15 +15,43 @@ public class MFLabelPrinter {
     private Context mContext;
     // 标签打印机
     private LabelPrinter mLabelPrinter;
-
-    public static MFLabelPrinter init(Context context) {
+    public static  MFLabelPrinter init(Context context) {
         synchronized (mLock) {
             if (null == INSTANCE) {
                 INSTANCE = new MFLabelPrinter(context);
+                if(INSTANCE!=null){
+                    return INSTANCE;
+                }else {
+                    return null;
+                }
+            }else {
+                return INSTANCE;
             }
+
         }
-        return INSTANCE;
     }
+
+//    public static  boolean init(Context context) {
+//        synchronized (mLock) {
+////            Build.BRAND
+////            if(Build.CPU_ABI.contains("armeabi-v7a")){
+//                if (null == INSTANCE) {
+//                    INSTANCE = new MFLabelPrinter(context);
+//                    if(INSTANCE!=null){
+//                        return true;
+//                    }else {
+//                        return false;
+//                    }
+//                }else {
+//                    return true;
+//                }
+////            }else {
+////                return false;
+////            }
+//
+//        }
+////        return INSTANCE;
+//    }
 
     public static MFLabelPrinter getInstance() {
         return INSTANCE;

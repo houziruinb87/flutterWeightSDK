@@ -8,6 +8,9 @@ public class WeightConstants {
     public static final String WEIGHT_EVENT_CHANNEL = "com.missfresh.weight_event_channel";
 
     /*************方法名称**************/
+    //打印
+     //初始化
+    public static final String LABEL_CHANNEL_PRINT_INIT = "label_channel_print_init";
     //查询打印机状态,返回int
     public static final String LABEL_CHANNEL_GET_INT_PRINT_STATUS = "label_channel_get_int_print_status";
     //查询打印机状态,返回String
@@ -17,6 +20,8 @@ public class WeightConstants {
     public static final String LABEL_PRINTER_CHANNEL_INIT = "label_printer_channel_init";
 
     //称重
+    //初始化
+    public static final String WEIGHT_CHANNEL_WEIGH_INIT = "weight_channel_weigh_init";
     //开启称重端口
     public static final String WEIGHT_CHANNEL_OPEN = "weight_channel_open";
    //关闭称重端口

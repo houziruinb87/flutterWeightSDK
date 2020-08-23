@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.Log;
 
 import com.missfresh.labelprinter.LabelPrinterMethodChannel;
-import com.missfresh.labelprinter.MFLabelPrinter;
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
@@ -27,8 +26,8 @@ public class WeightPlugin implements FlutterPlugin {
     public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
         Log.i("nb", "onAttachedToEngine");
         try {
-            MFLabelPrinter.init(flutterPluginBinding.getApplicationContext());
-            MFWeigh.init(flutterPluginBinding.getApplicationContext());
+//            MFLabelPrinter.init(flutterPluginBinding.getApplicationContext());
+//            MFWeigh.init(flutterPluginBinding.getApplicationContext());
             onAttachedToEngine(flutterPluginBinding.getApplicationContext(), flutterPluginBinding.getBinaryMessenger());
 
         }catch (Exception e){

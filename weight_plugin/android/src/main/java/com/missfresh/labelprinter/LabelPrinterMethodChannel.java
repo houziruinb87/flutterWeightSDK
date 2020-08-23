@@ -14,6 +14,7 @@ import io.flutter.plugin.common.MethodChannel;
 
 import static com.missfresh.weight.WeightConstants.LABEL_CHANNEL_GET_INT_PRINT_STATUS;
 import static com.missfresh.weight.WeightConstants.LABEL_CHANNEL_GET_STRING_PRINT_STATUS;
+import static com.missfresh.weight.WeightConstants.LABEL_CHANNEL_PRINT_INIT;
 import static com.missfresh.weight.WeightConstants.LABEL_PRINTER_CHANNEL_INIT;
 import static com.missfresh.weight.WeightConstants.LABEL_PRINTER_CHANNEL_PRINT_BITMAP;
 import static com.missfresh.weight.WeightConstants.PRINT_PARAM_MAP;
@@ -53,6 +54,12 @@ public class LabelPrinterMethodChannel implements MethodChannel.MethodCallHandle
     @Override
     public void onMethodCall(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
         Log.i("nb","onMethodCall");
+//打印初始化
+//        if (methodCall.method.equals(LABEL_CHANNEL_PRINT_INIT)) {
+//                boolean isSuccess = MFLabelPrinter.init(mContext);
+//                result.success(isSuccess);
+//        }
+
 //打印
         if (methodCall.method.equals(LABEL_PRINTER_CHANNEL_PRINT_BITMAP)) {
 
