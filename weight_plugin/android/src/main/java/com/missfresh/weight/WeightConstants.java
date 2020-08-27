@@ -8,6 +8,9 @@ public class WeightConstants {
     public static final String WEIGHT_EVENT_CHANNEL = "com.missfresh.weight_event_channel";
 
     /*************方法名称**************/
+    //是否是称重加工设备
+    public static final String IS_WEIGHT_PLATFORM = "IS_WEIGHT_PLATFORM";
+
     //打印
      //初始化
     public static final String LABEL_CHANNEL_PRINT_INIT = "label_channel_print_init";

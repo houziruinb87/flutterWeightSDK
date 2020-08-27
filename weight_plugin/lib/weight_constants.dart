@@ -7,6 +7,10 @@ class WeightConstants{
   static const String WEIGHT_EVENT_CHANNEL = "com.missfresh.weight_event_channel";
 
   /*************方法名称**************/
+  //是否是称重加工设备
+  static const String IS_WEIGHT_PLATFORM = "IS_WEIGHT_PLATFORM";
+
+
   static const String LABEL_CHANNEL_GET_INT_PRINT_STATUS = "label_channel_get_int_print_status";
   static const String LABEL_CHANNEL_GET_STRING_PRINT_STATUS = "label_channel_get_string_print_status";
   static const String LABEL_PRINTER_CHANNEL_PRINT_BITMAP = "label_printer_channel_print_bitmap";

@@ -6,10 +6,26 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="info" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec79c47f-fd96-4cd5-b2c8-aa6e35a1ac2a" name="Default Changelist" comment="" />
+    <list default="true" id="ec79c47f-fd96-4cd5-b2c8-aa6e35a1ac2a" name="Default Changelist" comment="refactor:0.0.9发版,切换到3.0.1">
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/MFWeighUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/weigh_detail_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/LabelPrinterMethodChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/LabelPrinterMethodChannel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightEventChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightEventChannel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightMethodChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightMethodChannel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/weight.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/weight.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/weight_constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/weight_constants.dart" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +37,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Dart File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -32,8 +49,16 @@
   <component name="PropertiesComponent">
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/android/src/main/jniLibs/armeabi" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/android/src/main/jniLibs/armeabi" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -72,7 +97,84 @@
       <option name="project" value="LOCAL" />
       <updated>1597843786244</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="refactor:0.0.2发版">
+      <created>1597844178905</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1597844178905</updated>
+    </task>
+    <task id="LOCAL-00004" summary="refactor:0.0.4发版,解决flutter中引用后包重复问题">
+      <created>1598065794992</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1598065794992</updated>
+    </task>
+    <task id="LOCAL-00005" summary="refactor:0.0.5发版,增加分包dex">
+      <created>1598066708736</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1598066708736</updated>
+    </task>
+    <task id="LOCAL-00006" summary="refactor:0.0.6发版,解决jar找不到">
+      <created>1598067259946</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1598067259946</updated>
+    </task>
+    <task id="LOCAL-00007" summary="refactor:0.0.7发版">
+      <created>1598068385692</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1598068385692</updated>
+    </task>
+    <task id="LOCAL-00008" summary="refactor:0.0.8发版,改回原来">
+      <created>1598069580699</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1598069580699</updated>
+    </task>
+    <task id="LOCAL-00009" summary="refactor:0.0.8发版,改回原来">
+      <created>1598069658181</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1598069658181</updated>
+    </task>
+    <task id="LOCAL-00010" summary="refactor:0.0.9发版,切换到3.0.1,使用compileOnly">
+      <created>1598075407425</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1598075407425</updated>
+    </task>
+    <task id="LOCAL-00011" summary="refactor:0.0.10发版 初始化加入try catch">
+      <created>1598181699816</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1598181699816</updated>
+    </task>
+    <task id="LOCAL-00012" summary="refactor:0.0.11发版,增加armeabi">
+      <created>1598189528037</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1598189528037</updated>
+    </task>
+    <task id="LOCAL-00013" summary="refactor:app初始化时初始化">
+      <created>1598451126159</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1598451126160</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -91,14 +193,23 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactor:修改最终样式" />
     <MESSAGE value="refactor:0.0.2发版" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor:0.0.2发版" />
+    <MESSAGE value="refactor:0.0.4发版,解决flutter中引用后包重复问题" />
+    <MESSAGE value="refactor:0.0.5发版,增加分包dex" />
+    <MESSAGE value="refactor:0.0.6发版,解决jar找不到" />
+    <MESSAGE value="refactor:0.0.7发版" />
+    <MESSAGE value="refactor:0.0.8发版,改回原来" />
+    <MESSAGE value="refactor:0.0.9发版,切换到3.0.1,使用compileOnly" />
+    <MESSAGE value="refactor:0.0.10发版 初始化加入try catch" />
+    <MESSAGE value="refactor:0.0.11发版,增加armeabi" />
+    <MESSAGE value="refactor:app初始化时初始化" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor:app初始化时初始化" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/LabelPrinterMethodChannel.java</url>
-          <line>66</line>
+          <line>73</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

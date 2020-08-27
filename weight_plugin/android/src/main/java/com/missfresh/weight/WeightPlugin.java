@@ -1,9 +1,11 @@
 package com.missfresh.weight;
 
 import android.content.Context;
+import android.os.Build;
 import android.util.Log;
 
 import com.missfresh.labelprinter.LabelPrinterMethodChannel;
+import com.missfresh.labelprinter.MFLabelPrinter;
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
@@ -24,17 +26,17 @@ public class WeightPlugin implements FlutterPlugin {
 
     @Override
     public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
-        Log.i("nb", "onAttachedToEngine");
         try {
-//            MFLabelPrinter.init(flutterPluginBinding.getApplicationContext());
-//            MFWeigh.init(flutterPluginBinding.getApplicationContext());
+            if (MFWeighUtil.isWeighDevice()) {
+                MFLabelPrinter.init(flutterPluginBinding.getApplicationContext());
+                MFWeigh.init(flutterPluginBinding.getApplicationContext());
+            }
             onAttachedToEngine(flutterPluginBinding.getApplicationContext(), flutterPluginBinding.getBinaryMessenger());
-
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.e("WeightPlugin", e.getMessage());
 
         }
-         }
+    }
 
     public void onAttachedToEngine(Context context, BinaryMessenger messenger) {
         sLabelPrinterMethodChannel = new LabelPrinterMethodChannel(context, messenger);
@@ -62,7 +64,7 @@ public class WeightPlugin implements FlutterPlugin {
     @Override
     public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
         sLabelPrinterMethodChannel.getsLabelPrinterMethodChannel().setMethodCallHandler(null);
-              sWeightMethodChannel.getWeightMethodChannel().setMethodCallHandler(null);
+        sWeightMethodChannel.getWeightMethodChannel().setMethodCallHandler(null);
         sWeightEventChannel.getsWeightEventChannel().setStreamHandler(null);
     }
 }

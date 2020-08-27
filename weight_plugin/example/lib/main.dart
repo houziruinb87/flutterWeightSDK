@@ -6,6 +6,7 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:weight/weight.dart';
 import 'package:weight/weight_constants.dart';
+import 'package:weight/weigh_detail_model.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,18 +29,12 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     Weight.weightChannelOpen;
     Weight.onWeightChange.listen((event) {
-      Map<String, dynamic> eventMap = new Map<String, dynamic>.from(event);
-      eventMap.containsKey(WeightConstants.WEIGHT_PARAM_MODEL);
-      String weightModel = eventMap[WeightConstants.WEIGHT_PARAM_MODEL];
-      String weightStatus = eventMap[WeightConstants.WEIGHT_PARAM_STATUS];
-      isZero = eventMap[WeightConstants.WEIGHT_PARAM_IS_ZERO];
-      weightUnit = eventMap[WeightConstants.WEIGHT_PARAM_UNIT];
-      weightNetWeight = eventMap[WeightConstants.WEIGHT_PARAM_NET_WEIGHT];
-      String weightTareWeight =
-          eventMap[WeightConstants.WEIGHT_PARAM_TARE_WEIGHT];
-      String weightGrossWeight =
-          eventMap[WeightConstants.WEIGHT_PARAM_GROSS_WEIGHT];
-      isStable = eventMap[WeightConstants.WEIGHT_PARAM_IS_STABLE];
+      if(event is WeighDetailModel){
+      String weightModel =event.model;
+      String weightStatus = event.status;
+      isZero = event.isZero;
+      isStable = event.isStable;
+      weightNetWeight = event.netWeight;
 
       printWhenStable();
       if (isZero) {
@@ -47,9 +42,11 @@ class _MyAppState extends State<MyApp> {
       }
       if (mounted) {
         setState(() {
-          weightNetWeight = eventMap[WeightConstants.WEIGHT_PARAM_NET_WEIGHT];
+          weightNetWeight = event.netWeight;
         });
       }
+      }
+//      print("回调");
     });
   }
 

@@ -26,11 +26,32 @@ android {
     lintOptions {
         disable 'InvalidPackage'
     }
+    buildTypes {
+        release {
+//            minifyEnabled true
+//            shrinkResources true
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            signingConfig signingConfigs.release
+            ndk {
+                //这里要加上，否则debug包会出问题,后面三个为可选，x86建议加上不然部分模拟器回报错
+                abiFilters "armeabi-v7a", "armeabi-v7a", "arm64-v8a", "x86"
+            }
+        }
+
+        debug {
+
+            ndk {
+                //这里要加上，否则debug包会出问题,后面三个为可选，x86建议加上不然部分模拟器回报错
+                abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+            }
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    compileOnly "com.google.zxing:core:3.0.1"
+//    compileOnly "com.google.zxing:core:3.0.1"
+    implementation "com.google.zxing:core:3.0.1"
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.android.support:multidex:1.0.3'

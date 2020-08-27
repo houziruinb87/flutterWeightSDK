@@ -53,7 +53,7 @@ public class LabelPrinterMethodChannel implements MethodChannel.MethodCallHandle
 
     @Override
     public void onMethodCall(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
-        Log.i("nb","onMethodCall");
+
 //打印初始化
 //        if (methodCall.method.equals(LABEL_CHANNEL_PRINT_INIT)) {
 //                boolean isSuccess = MFLabelPrinter.init(mContext);
@@ -77,13 +77,11 @@ public class LabelPrinterMethodChannel implements MethodChannel.MethodCallHandle
         }
         //获取打印的string状态
         else if (methodCall.method.equals(LABEL_CHANNEL_GET_STRING_PRINT_STATUS)) {
-            Log.i("nb","LABEL_CHANNEL_GET_STRING_PRINT_STATUS");
 
-            String stringPrintStatus = MFLabelPrinter.getInstance().getStringPrintStatus();
+              String stringPrintStatus = MFLabelPrinter.getInstance().getStringPrintStatus();
             result.success(stringPrintStatus);
         }
         else if (methodCall.method.equals(LABEL_PRINTER_CHANNEL_INIT)) {
-            Log.i("nb","LABEL_PRINTER_CHANNEL_INIT");
 
            MFLabelPrinter.init(mContext);
 

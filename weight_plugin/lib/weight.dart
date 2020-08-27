@@ -2,23 +2,34 @@ import 'dart:async';
 import 'dart:collection';
 
 import 'package:flutter/services.dart';
+import 'package:weight/weigh_detail_model.dart';
 import 'package:weight/weight_constants.dart';
 
 class Weight {
-  static const MethodChannel _sWeightMethodChannel = const MethodChannel(WeightConstants.WEIGHT_METHOD_CHANNEL) ;
-  static const MethodChannel _sLabelPrinterMethodChannel =  const MethodChannel(WeightConstants.LABEL_PRINTER_METHOD_CHANNEL);
-  static const EventChannel _sWeightEventChannel  =  const EventChannel(WeightConstants.WEIGHT_EVENT_CHANNEL);
- ///打印相关
+  static const MethodChannel _sWeightMethodChannel =
+      const MethodChannel(WeightConstants.WEIGHT_METHOD_CHANNEL);
+
+  static const MethodChannel _sLabelPrinterMethodChannel =
+      const MethodChannel(WeightConstants.LABEL_PRINTER_METHOD_CHANNEL);
+  static const EventChannel _sWeightEventChannel =
+      const EventChannel(WeightConstants.WEIGHT_EVENT_CHANNEL);
+
+  ///打印相关
   /*初始打印*/
   static Future<String> get weightChannelInitPrint async {
-    final String stringPrintStatus = await _sLabelPrinterMethodChannel.invokeMethod(WeightConstants.LABEL_PRINTER_CHANNEL_INIT);
+    final String stringPrintStatus = await _sLabelPrinterMethodChannel
+        .invokeMethod(WeightConstants.LABEL_PRINTER_CHANNEL_INIT);
     return stringPrintStatus;
   }
+
 /*打印bitmap*/
-  static Future<bool>  weightChannelPrintBitmap(HashMap map) async{
-    final bool isSuccess = await _sLabelPrinterMethodChannel.invokeMethod(WeightConstants.LABEL_PRINTER_CHANNEL_PRINT_BITMAP,{WeightConstants.PRINT_PARAM_MAP: map});
+  static Future<bool> weightChannelPrintBitmap(HashMap map) async {
+    final bool isSuccess = await _sLabelPrinterMethodChannel.invokeMethod(
+        WeightConstants.LABEL_PRINTER_CHANNEL_PRINT_BITMAP,
+        {WeightConstants.PRINT_PARAM_MAP: map});
     return isSuccess;
   }
+
   /*获取打印状态int*/
   //  * 查询打印机状态,0是正常,不剥纸时可 返回2（未取纸）时也进行打印
   //     * @return
@@ -44,9 +55,11 @@ class Weight {
   //     *     showmsg("打印机未知异常");
   //     *     break;
   static Future<int> get weightChannelGetIntPrintStatus async {
-    final int intPrintStatus = await _sLabelPrinterMethodChannel.invokeMethod(WeightConstants.LABEL_CHANNEL_GET_INT_PRINT_STATUS);
+    final int intPrintStatus = await _sLabelPrinterMethodChannel
+        .invokeMethod(WeightConstants.LABEL_CHANNEL_GET_INT_PRINT_STATUS);
     return intPrintStatus;
   }
+
   /*获取打印状态String*/
   //  * 查询打印机状态,0是正常,不剥纸时可 返回2（未取纸）时也进行打印
   //     * @return
@@ -72,36 +85,82 @@ class Weight {
   //     *     showmsg("打印机未知异常");
   //     *     break;
   static Future<String> get weightChannelGetStringPrintStats async {
-    final String stringPrintStatus = await _sLabelPrinterMethodChannel.invokeMethod(WeightConstants.LABEL_CHANNEL_GET_STRING_PRINT_STATUS);
+    final String stringPrintStatus = await _sLabelPrinterMethodChannel
+        .invokeMethod(WeightConstants.LABEL_CHANNEL_GET_STRING_PRINT_STATUS);
     return stringPrintStatus;
   }
 
-
-///称重相关
+  ///称重相关
+  /*查看是否是称重设备*/
+  static Future<bool> get weightChannelIsWeighDevice async {
+    final bool isWeighDevice = await _sWeightMethodChannel
+        .invokeMethod(WeightConstants.IS_WEIGHT_PLATFORM);
+    return isWeighDevice;
+  }
   /*开启称重端口*/
   static Future<bool> get weightChannelOpen async {
-    final bool isOpen = await _sWeightMethodChannel.invokeMethod(WeightConstants.WEIGHT_CHANNEL_OPEN);
+    final bool isOpen = await _sWeightMethodChannel
+        .invokeMethod(WeightConstants.WEIGHT_CHANNEL_OPEN);
     return isOpen;
   }
+
   /*关闭称重端口*/
   static Future<bool> get weightChannelClose async {
-    final bool isClose = await _sWeightMethodChannel.invokeMethod(WeightConstants.WEIGHT_CHANNEL_CLOSE);
+    final bool isClose = await _sWeightMethodChannel
+        .invokeMethod(WeightConstants.WEIGHT_CHANNEL_CLOSE);
     return isClose;
   }
+
   /*获取称重信息*/
   static Future<String> get weightChannelGetWeightMessage async {
-    final String weightMessage = await _sWeightMethodChannel.invokeMethod(WeightConstants.WEIGHT_CHANNEL_GET_RAW_WEIGHT_MESSAGE);
+    final String weightMessage = await _sWeightMethodChannel
+        .invokeMethod(WeightConstants.WEIGHT_CHANNEL_GET_RAW_WEIGHT_MESSAGE);
     return weightMessage;
   }
+
   /*归零*/
   static Future<String> get weightChannelSetZero async {
-    final String setResult = await _sWeightMethodChannel.invokeMethod(WeightConstants.WEIGHT_CHANNEL_SET_ZERO);
+    final String setResult = await _sWeightMethodChannel
+        .invokeMethod(WeightConstants.WEIGHT_CHANNEL_SET_ZERO);
     return setResult;
   }
-/*监听重量变化*/
-  static Stream<dynamic> get onWeightChange {
-    Stream<dynamic>  stream=  _sWeightEventChannel.receiveBroadcastStream();
 
-  return _sWeightEventChannel.receiveBroadcastStream();
- }
+/*监听重量变化*/
+  static Stream<WeighDetailModel> get onWeightChange {
+    Stream<dynamic> receiveBroadcastStream =
+        _sWeightEventChannel.receiveBroadcastStream();
+    var nb = StreamTransformer.fromHandlers(
+        //数据回调方法
+        handleData: (dynamic data, EventSink<WeighDetailModel> sink) {
+      Map<String, dynamic> eventMap = new Map<String, dynamic>.from(data);
+      WeighDetailModel weighDetailModel = WeighDetailModel();
+      if (eventMap.containsKey(WeightConstants.WEIGHT_PARAM_MODEL)) {
+        weighDetailModel.model = eventMap[WeightConstants.WEIGHT_PARAM_MODEL];
+      }
+      if (eventMap.containsKey(WeightConstants.WEIGHT_PARAM_STATUS)) {
+        weighDetailModel.status = eventMap[WeightConstants.WEIGHT_PARAM_STATUS];
+      }
+      if (eventMap.containsKey(WeightConstants.WEIGHT_PARAM_IS_ZERO)) {
+        weighDetailModel.isZero =
+            eventMap[WeightConstants.WEIGHT_PARAM_IS_ZERO];
+      }
+      if (eventMap.containsKey(WeightConstants.WEIGHT_PARAM_NET_WEIGHT)) {
+        weighDetailModel.netWeight =
+            eventMap[WeightConstants.WEIGHT_PARAM_NET_WEIGHT];
+      }
+      if (eventMap.containsKey(WeightConstants.WEIGHT_PARAM_NET_WEIGHT)) {
+        weighDetailModel.netWeight =
+            eventMap[WeightConstants.WEIGHT_PARAM_NET_WEIGHT];
+      }
+      if (eventMap.containsKey(WeightConstants.WEIGHT_PARAM_IS_STABLE)) {
+        weighDetailModel.isStable =
+            eventMap[WeightConstants.WEIGHT_PARAM_IS_STABLE];
+      }
+      sink.add(weighDetailModel);
+    });
+
+    Stream<WeighDetailModel> newStream =
+        receiveBroadcastStream.transform<WeighDetailModel>(nb);
+    return newStream;
+  }
 }
