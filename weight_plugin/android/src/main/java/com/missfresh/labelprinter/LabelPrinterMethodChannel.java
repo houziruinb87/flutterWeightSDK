@@ -28,43 +28,29 @@ import static com.missfresh.weight.WeightConstants.PRINT_PARAM_TIME;
 import static com.missfresh.weight.WeightConstants.PRINT_PARAM_TITLE;
 
 /**
- *打印通信渠道
+ * 打印通信渠道
  */
 public class LabelPrinterMethodChannel implements MethodChannel.MethodCallHandler {
     private Context mContext;
     private BinaryMessenger messenger;
-    private  MethodChannel sLabelPrinterMethodChannel;
+    private MethodChannel sLabelPrinterMethodChannel;
 
     public LabelPrinterMethodChannel(Context context, BinaryMessenger messenger) {
-        Log.i("nb","LabelPrinterMethodChannel");
         mContext = context;
-        Log.i("nb","1");
         this.messenger = messenger;
-        Log.i("nb","2");
-        Log.i("nb","3");
-
         sLabelPrinterMethodChannel = new MethodChannel(messenger, WeightConstants.LABEL_PRINTER_METHOD_CHANNEL);
-        Log.i("nb","MethodChannel");
-
         sLabelPrinterMethodChannel.setMethodCallHandler(this);
-        Log.i("nb","setMethodCallHandler");
 
     }
 
     @Override
     public void onMethodCall(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
 
-//打印初始化
-//        if (methodCall.method.equals(LABEL_CHANNEL_PRINT_INIT)) {
-//                boolean isSuccess = MFLabelPrinter.init(mContext);
-//                result.success(isSuccess);
-//        }
-
-//打印
+        //打印
         if (methodCall.method.equals(LABEL_PRINTER_CHANNEL_PRINT_BITMAP)) {
 
-            if(methodCall.hasArgument(PRINT_PARAM_MAP)){
-               HashMap<String,String> arguments = methodCall.argument(PRINT_PARAM_MAP);
+            if (methodCall.hasArgument(PRINT_PARAM_MAP)) {
+                HashMap<String, String> arguments = methodCall.argument(PRINT_PARAM_MAP);
                 boolean isSuccess = MFLabelPrinter.getInstance().printBitmap(arguments.get(PRINT_PARAM_TITLE), arguments.get(PRINT_PARAM_SPEC), arguments.get(PRINT_PARAM_NET_WEIGHT), arguments.get(PRINT_PARAM_TIME), arguments.get(PRINT_PARAM_STORE_CONDITION), arguments.get(PRINT_PARAM_MATERIAL_CODE), arguments.get(PRINT_PARAM_SKU_CODE), arguments.get(PRINT_PARAM_PACKAGE_NUM));
                 result.success(isSuccess);
             }
@@ -78,12 +64,11 @@ public class LabelPrinterMethodChannel implements MethodChannel.MethodCallHandle
         //获取打印的string状态
         else if (methodCall.method.equals(LABEL_CHANNEL_GET_STRING_PRINT_STATUS)) {
 
-              String stringPrintStatus = MFLabelPrinter.getInstance().getStringPrintStatus();
+            String stringPrintStatus = MFLabelPrinter.getInstance().getStringPrintStatus();
             result.success(stringPrintStatus);
-        }
-        else if (methodCall.method.equals(LABEL_PRINTER_CHANNEL_INIT)) {
+        } else if (methodCall.method.equals(LABEL_PRINTER_CHANNEL_INIT)) {
 
-           MFLabelPrinter.init(mContext);
+            MFLabelPrinter.init(mContext);
 
         }
     }

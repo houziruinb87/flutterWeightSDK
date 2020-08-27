@@ -27,6 +27,7 @@ public class WeightPlugin implements FlutterPlugin {
     @Override
     public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
         try {
+            //是加工设备才初始化
             if (MFWeighUtil.isWeighDevice()) {
                 MFLabelPrinter.init(flutterPluginBinding.getApplicationContext());
                 MFWeigh.init(flutterPluginBinding.getApplicationContext());
@@ -55,7 +56,6 @@ public class WeightPlugin implements FlutterPlugin {
     // depending on the user's project. onAttachedToEngine or registerWith must both be defined
     // in the same class.
     public static void registerWith(Registrar registrar) {
-        Log.i("nb", "registerWith");
         WeightPlugin weigh = new WeightPlugin();
         weigh.onAttachedToEngine(registrar.context(), registrar.messenger());
     }

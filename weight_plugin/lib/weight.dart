@@ -3,6 +3,7 @@ import 'dart:collection';
 
 import 'package:flutter/services.dart';
 import 'package:weight/weigh_detail_model.dart';
+import 'package:weight/weigh_print_model.dart';
 import 'package:weight/weight_constants.dart';
 
 class Weight {
@@ -28,6 +29,55 @@ class Weight {
         WeightConstants.LABEL_PRINTER_CHANNEL_PRINT_BITMAP,
         {WeightConstants.PRINT_PARAM_MAP: map});
     return isSuccess;
+  }
+  /*根据对象打印*/
+  static Future<bool> weightChannelPrint(WeighPrintModel weighPrintModel) async {
+
+    //判断打印机状态
+    int printStatusInt = await Weight.weightChannelGetIntPrintStatus;
+    bool isCurrentPrintSuccess =false ;
+    if (printStatusInt == 0) {
+      //打印机状态正常
+      //拼接打印参数
+      HashMap hashMap = HashMap<String, String>();
+      //标题
+      hashMap.putIfAbsent(WeightConstants.PRINT_PARAM_TITLE, () => weighPrintModel?.skuName??'');
+      //规格
+      hashMap.putIfAbsent(
+          WeightConstants.PRINT_PARAM_SPEC, () => weighPrintModel?.skuSpec??'');
+      //净重
+      hashMap.putIfAbsent(
+          WeightConstants.PRINT_PARAM_NET_WEIGHT, () => weighPrintModel?.netWeigh??'');
+      //打印时间(必须是yyyyMMdd)
+      hashMap.putIfAbsent(WeightConstants.PRINT_PARAM_TIME, () => weighPrintModel?.createTime??'');
+      //存储条件
+      hashMap.putIfAbsent(
+          WeightConstants.PRINT_PARAM_STORE_CONDITION, () => weighPrintModel?.storeCondition??'');
+      //原料码
+      hashMap.putIfAbsent(
+          WeightConstants.PRINT_PARAM_MATERIAL_CODE, () => weighPrintModel?.materialCode??'');
+      //SKU码
+      hashMap.putIfAbsent(
+          WeightConstants.PRINT_PARAM_SKU_CODE, () => weighPrintModel?.skuCode??'');
+      //唯一码
+      hashMap.putIfAbsent(
+          WeightConstants.PRINT_PARAM_PACKAGE_NUM, () => weighPrintModel?.snCode??'');
+
+      //开始打印
+      isCurrentPrintSuccess = await Weight.weightChannelPrintBitmap(hashMap);
+      if (isCurrentPrintSuccess) {
+        print("打印成功");
+      } else {
+        print("打印失败");
+      }
+      return isCurrentPrintSuccess;
+    } else {
+      //打印机状态不正常,查询具体异常信息
+//      String printStatusString =
+//      await Weight.weightChannelGetStringPrintStats; //具体异常信息
+      return false;
+    }
+
   }
 
   /*获取打印状态int*/

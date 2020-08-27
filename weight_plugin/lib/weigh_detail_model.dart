@@ -10,4 +10,7 @@ class WeighDetailModel {
    //是否稳定,(打印机状态是否为Stable)
    bool isStable;
 
+
+
+
 }

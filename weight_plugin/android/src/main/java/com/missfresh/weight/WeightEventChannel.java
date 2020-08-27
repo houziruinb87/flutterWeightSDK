@@ -19,6 +19,9 @@ import static com.missfresh.weight.WeightConstants.WEIGHT_PARAM_STATUS;
 import static com.missfresh.weight.WeightConstants.WEIGHT_PARAM_TARE_WEIGHT;
 import static com.missfresh.weight.WeightConstants.WEIGHT_PARAM_UNIT;
 
+/**
+ * 称重流事件发布通道
+ */
 public class WeightEventChannel implements EventChannel.StreamHandler,OnWeightChangeListener {
     private Context mContext;
     private BinaryMessenger mBinaryMessenger;
@@ -50,7 +53,6 @@ public class WeightEventChannel implements EventChannel.StreamHandler,OnWeightCh
 
     @Override
     public void onWeightChanged(WeightData weightData) {
-//        HashMap<String, Object> objectObjectHashMap = ;
         objectObjectHashMap.put(WEIGHT_PARAM_MODEL,weightData.getModel());
         objectObjectHashMap.put(WEIGHT_PARAM_STATUS,weightData.getStatus());
         objectObjectHashMap.put(WEIGHT_PARAM_IS_ZERO,weightData.isZero());
@@ -75,7 +77,6 @@ public class WeightEventChannel implements EventChannel.StreamHandler,OnWeightCh
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if(mEventSink!=null){
-//                mEventSink.success("NBNBNBNBNBNBNBNBNBNBNBNNBNBNBNBNBNB");
                 mEventSink.success(objectObjectHashMap);
 
             }

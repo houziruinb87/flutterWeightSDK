@@ -39,12 +39,12 @@ public class WeightMethodChannel implements MethodChannel.MethodCallHandler {
         //            result.success(isSuccess);
         //        }
 
-                //判断是否是称重加工设备
+        //判断是否是称重加工设备
         if (methodCall.method.equals(IS_WEIGHT_PLATFORM)) {
-                result.success(MFWeighUtil.isWeighDevice());
+            result.success(MFWeighUtil.isWeighDevice());
         }
         //开启重量硬件端口
-       else if (methodCall.method.equals(WEIGHT_CHANNEL_OPEN)) {
+        else if (methodCall.method.equals(WEIGHT_CHANNEL_OPEN)) {
             if (MFWeigh.getInstance() != null) {
                 boolean isSuccess = MFWeigh.getInstance().open();
                 result.success(isSuccess);
@@ -60,8 +60,13 @@ public class WeightMethodChannel implements MethodChannel.MethodCallHandler {
             result.success(weightResult);
         } else if (methodCall.method.equals(WEIGHT_CHANNEL_SET_ZERO)) {
             //返回:归零成功   或者其他异常状态
-            String weightResult = MFWeigh.getInstance().setZero();
-            result.success(weightResult);
+            if(MFWeigh.getInstance()!=null){
+                String weightResult = MFWeigh.getInstance().setZero();
+                result.success(weightResult);
+            }else {
+                result.success("称重未初始化");
+            }
+
         }
 
     }
