@@ -220,10 +220,10 @@ class _MyAppState extends State<MyApp> {
     //不在0点并且稳定, 且当前物品没有打印成功 开始自动打印
     if (!isZero && isStable && !isCurrentPrintSuccess) {
 
-      WeighPrintModel weighPrintModel = WeighPrintModel();
+      WeighPrintModel weighPrintModel = WeighPrintModel("刚哥威武霸气吊炸天","10000ml*19","200","2020-11-12 23:31:43","刚哥咋这nb","1203912389","SJ989-23SDF-23RK","SJ989-SDFKJ1-1498723SDF-23RK");
       weighPrintModel.skuName = "刚哥威武霸气吊炸天";
       weighPrintModel.skuSpec = "10000ml*19";
-      weighPrintModel.netWeigh = 2000;
+      weighPrintModel.netWeigh = "200";
       weighPrintModel.createTime = "2020-11-12 23:31:43";
       weighPrintModel.storeCondition = "刚哥咋这nb";
       weighPrintModel.materialCode = "1203912389";

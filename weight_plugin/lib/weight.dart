@@ -47,7 +47,7 @@ class Weight {
           WeightConstants.PRINT_PARAM_SPEC, () => weighPrintModel?.skuSpec??'');
       //净重
       hashMap.putIfAbsent(
-          WeightConstants.PRINT_PARAM_NET_WEIGHT, () => weighPrintModel?.netWeigh.toString()??'');
+          WeightConstants.PRINT_PARAM_NET_WEIGHT, () => weighPrintModel?.netWeigh??'');
       String time = weighPrintModel?.createTime ?? '';
       String yyyy_MM_dd = '';
       String yyyyMMdd = '';

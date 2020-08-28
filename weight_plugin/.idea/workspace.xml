@@ -12,8 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec79c47f-fd96-4cd5-b2c8-aa6e35a1ac2a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/weigh_detail_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/weigh_detail_model.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/weigh_print_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/weigh_print_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/weight.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/weight.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -192,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598582344241</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="refactor:0.0.17发版,添加构造函数">
+      <created>1598582618777</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1598582618777</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -224,7 +236,8 @@
     <MESSAGE value="refactor:0.0.14发版,compileOnly 二维码" />
     <MESSAGE value="refactor:0.0.15发版,打印再次封装为对象" />
     <MESSAGE value="refactor:0.0.16发版,打印再次封装为对象" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor:0.0.16发版,打印再次封装为对象" />
+    <MESSAGE value="refactor:0.0.17发版,添加构造函数" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor:0.0.17发版,添加构造函数" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

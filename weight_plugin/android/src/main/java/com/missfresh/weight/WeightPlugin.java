@@ -6,7 +6,6 @@ import android.util.Log;
 import com.missfresh.labelprinter.LabelPrinterMethodChannel;
 import com.missfresh.labelprinter.MFLabelPrinter;
 
-import junit.framework.Test;
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
