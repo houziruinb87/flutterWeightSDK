@@ -47,9 +47,21 @@ class Weight {
           WeightConstants.PRINT_PARAM_SPEC, () => weighPrintModel?.skuSpec??'');
       //净重
       hashMap.putIfAbsent(
-          WeightConstants.PRINT_PARAM_NET_WEIGHT, () => weighPrintModel?.netWeigh??'');
+          WeightConstants.PRINT_PARAM_NET_WEIGHT, () => weighPrintModel?.netWeigh.toString()??'');
+      String time = weighPrintModel?.createTime ?? '';
+      String yyyy_MM_dd = '';
+      String yyyyMMdd = '';
       //打印时间(必须是yyyyMMdd)
-      hashMap.putIfAbsent(WeightConstants.PRINT_PARAM_TIME, () => weighPrintModel?.createTime??'');
+      if(weighPrintModel.createTime!=null){
+        //当前获取到的是yyyy-MM-dd HH:mm:ss
+        //打印时间(必须是YYYYMMDD)
+
+        if (time.length >= 10) {
+          yyyy_MM_dd = time.substring(0, 10);
+          yyyyMMdd = yyyy_MM_dd.replaceAll('-', '');
+        }
+      }
+      hashMap.putIfAbsent(WeightConstants.PRINT_PARAM_TIME, () => yyyyMMdd);
       //存储条件
       hashMap.putIfAbsent(
           WeightConstants.PRINT_PARAM_STORE_CONDITION, () => weighPrintModel?.storeCondition??'');

@@ -6,19 +6,18 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="nb" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="info" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec79c47f-fd96-4cd5-b2c8-aa6e35a1ac2a" name="Default Changelist" comment="refactor:0.0.13发版,是打印设备才加载,重量信息实时变化时返回对象">
-      <change afterPath="$PROJECT_DIR$/lib/weigh_print_model.dart" afterDir="false" />
+    <list default="true" id="ec79c47f-fd96-4cd5-b2c8-aa6e35a1ac2a" name="Default Changelist" comment="refactor:0.0.15发版,打印再次封装为对象">
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/LabelPrinterMethodChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/LabelPrinterMethodChannel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightEventChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightEventChannel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightMethodChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightMethodChannel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/MFWeighUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/MFWeighUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightPlugin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/weigh_detail_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/weigh_detail_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/weigh_print_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/weigh_print_model.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/weight.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/weight.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,7 +26,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="2020b0d1" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="7975c4e9" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -184,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598521924010</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="refactor:0.0.15发版,打印再次封装为对象">
+      <created>1598529132758</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1598529132758</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -214,7 +220,8 @@
     <MESSAGE value="refactor:app初始化时初始化" />
     <MESSAGE value="refactor:0.0.13发版,是打印设备才加载,重量信息实时变化时返回对象" />
     <MESSAGE value="refactor:0.0.14发版,compileOnly 二维码" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor:0.0.14发版,compileOnly 二维码" />
+    <MESSAGE value="refactor:0.0.15发版,打印再次封装为对象" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor:0.0.15发版,打印再次封装为对象" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

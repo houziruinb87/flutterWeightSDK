@@ -9,9 +9,10 @@ public class MFWeighUtil {
      */
     public static boolean isWeighDevice() {
         if (Build.MODEL.contains("C-L8A")
-                || Build.MODEL.contains("C-P8")
+                || Build.MODEL.contains("C-P8A")
                 || Build.MODEL.contains("HSP500A")
                 || Build.MODEL.contains("C-F1A")
+                || Build.MODEL.contains("C-P1A")
         ) {
             return true;
         } else {

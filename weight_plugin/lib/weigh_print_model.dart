@@ -4,7 +4,7 @@ class WeighPrintModel {
   //产品规格
   String skuSpec;
   //净重
-  String netWeigh;
+  int netWeigh;
   //必须转为yyyyMMdd
   //生产时间
   String createTime;

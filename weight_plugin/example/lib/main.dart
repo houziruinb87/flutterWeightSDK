@@ -223,8 +223,8 @@ class _MyAppState extends State<MyApp> {
       WeighPrintModel weighPrintModel = WeighPrintModel();
       weighPrintModel.skuName = "刚哥威武霸气吊炸天";
       weighPrintModel.skuSpec = "10000ml*19";
-      weighPrintModel.netWeigh = "2000";
-      weighPrintModel.createTime = "20111102";
+      weighPrintModel.netWeigh = 2000;
+      weighPrintModel.createTime = "2020-11-12 23:31:43";
       weighPrintModel.storeCondition = "刚哥咋这nb";
       weighPrintModel.materialCode = "1203912389";
       weighPrintModel.skuCode = "SJ989-23SDF-23RK";
