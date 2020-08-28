@@ -10,7 +10,8 @@ class WeighDetailModel {
    //是否稳定,(打印机状态是否为Stable)
    bool isStable;
 
-
+   WeighDetailModel(this.model, this.status, this.isZero, this.netWeight,
+       this.isStable);
 
 
 }

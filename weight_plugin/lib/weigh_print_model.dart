@@ -16,4 +16,9 @@ class WeighPrintModel {
   String skuCode;
   //唯一码
   String snCode;
+
+  WeighPrintModel(this.skuName, this.skuSpec, this.netWeigh, this.createTime,
+      this.storeCondition, this.materialCode, this.skuCode, this.snCode);
+
+
 }
