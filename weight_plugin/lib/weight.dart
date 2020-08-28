@@ -223,6 +223,6 @@ class Weight {
 
     Stream<WeighDetailModel> newStream =
         receiveBroadcastStream.transform<WeighDetailModel>(nb);
-    return newStream;
+    return newStream.asBroadcastStream();
   }
 }
