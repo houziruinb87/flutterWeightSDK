@@ -25,18 +25,17 @@ class Weight {
 
 /*打印bitmap*/
   static Future<bool> weightChannelPrintBitmap(HashMap map) async {
-    final bool isSuccess = await _sLabelPrinterMethodChannel.invokeMethod(
+    return await _sLabelPrinterMethodChannel.invokeMethod(
         WeightConstants.LABEL_PRINTER_CHANNEL_PRINT_BITMAP,
-        {WeightConstants.PRINT_PARAM_MAP: map});
-    return isSuccess;
+        {WeightConstants.PRINT_PARAM_MAP: map}).catchError((error){
+      throw '${error?.message??''}';
+    });
   }
+
   /*根据对象打印*/
   static Future<bool> weightChannelPrint(WeighPrintModel weighPrintModel) async {
 
-    //判断打印机状态
-    int printStatusInt = await Weight.weightChannelGetIntPrintStatus;
-    bool isCurrentPrintSuccess =false ;
-    if (printStatusInt == 0) {
+
       //打印机状态正常
       //拼接打印参数
       HashMap hashMap = HashMap<String, String>();
@@ -76,19 +75,10 @@ class Weight {
           WeightConstants.PRINT_PARAM_PACKAGE_NUM, () => weighPrintModel?.snCode??'');
 
       //开始打印
-      isCurrentPrintSuccess = await Weight.weightChannelPrintBitmap(hashMap);
-      if (isCurrentPrintSuccess) {
-        print("打印成功");
-      } else {
-        print("打印失败");
-      }
-      return isCurrentPrintSuccess;
-    } else {
-      //打印机状态不正常,查询具体异常信息
-//      String printStatusString =
-//      await Weight.weightChannelGetStringPrintStats; //具体异常信息
-      return false;
-    }
+   return await Weight.weightChannelPrintBitmap(hashMap).catchError((error){
+     throw '${error?.message??''}';
+   });
+
 
   }
 
@@ -117,9 +107,10 @@ class Weight {
   //     *     showmsg("打印机未知异常");
   //     *     break;
   static Future<int> get weightChannelGetIntPrintStatus async {
-    final int intPrintStatus = await _sLabelPrinterMethodChannel
-        .invokeMethod(WeightConstants.LABEL_CHANNEL_GET_INT_PRINT_STATUS);
-    return intPrintStatus;
+    return  _sLabelPrinterMethodChannel
+        .invokeMethod(WeightConstants.LABEL_CHANNEL_GET_INT_PRINT_STATUS).catchError((error){
+      throw '${error?.message??''}';
+    });
   }
 
   /*获取打印状态String*/
@@ -147,44 +138,51 @@ class Weight {
   //     *     showmsg("打印机未知异常");
   //     *     break;
   static Future<String> get weightChannelGetStringPrintStats async {
-    final String stringPrintStatus = await _sLabelPrinterMethodChannel
-        .invokeMethod(WeightConstants.LABEL_CHANNEL_GET_STRING_PRINT_STATUS);
-    return stringPrintStatus;
+    return await _sLabelPrinterMethodChannel
+        .invokeMethod(WeightConstants.LABEL_CHANNEL_GET_STRING_PRINT_STATUS).catchError((error){
+      throw '${error?.message??''}';
+    });
   }
 
   ///称重相关
   /*查看是否是称重设备*/
   static Future<bool> get weightChannelIsWeighDevice async {
     final bool isWeighDevice = await _sWeightMethodChannel
-        .invokeMethod(WeightConstants.IS_WEIGHT_PLATFORM);
+        .invokeMethod(WeightConstants.IS_WEIGHT_PLATFORM).catchError((error){
+      throw '${error?.message??''}';
+    });
     return isWeighDevice;
   }
   /*开启称重端口*/
   static Future<bool> get weightChannelOpen async {
-    final bool isOpen = await _sWeightMethodChannel
-        .invokeMethod(WeightConstants.WEIGHT_CHANNEL_OPEN);
-    return isOpen;
+    return await _sWeightMethodChannel
+        .invokeMethod(WeightConstants.WEIGHT_CHANNEL_OPEN).catchError((error){
+      throw '${error?.message??''}';
+    });
   }
 
   /*关闭称重端口*/
   static Future<bool> get weightChannelClose async {
-    final bool isClose = await _sWeightMethodChannel
-        .invokeMethod(WeightConstants.WEIGHT_CHANNEL_CLOSE);
-    return isClose;
+    return await _sWeightMethodChannel
+        .invokeMethod(WeightConstants.WEIGHT_CHANNEL_CLOSE).catchError((error){
+      throw '${error?.message??''}';
+    });
   }
 
   /*获取称重信息*/
   static Future<String> get weightChannelGetWeightMessage async {
-    final String weightMessage = await _sWeightMethodChannel
-        .invokeMethod(WeightConstants.WEIGHT_CHANNEL_GET_RAW_WEIGHT_MESSAGE);
-    return weightMessage;
+    return await _sWeightMethodChannel
+        .invokeMethod(WeightConstants.WEIGHT_CHANNEL_GET_RAW_WEIGHT_MESSAGE).catchError((e){
+          throw "${e.message}";
+    });
   }
 
   /*归零*/
   static Future<String> get weightChannelSetZero async {
-    final String setResult = await _sWeightMethodChannel
-        .invokeMethod(WeightConstants.WEIGHT_CHANNEL_SET_ZERO);
-    return setResult;
+    return await _sWeightMethodChannel
+        .invokeMethod(WeightConstants.WEIGHT_CHANNEL_SET_ZERO).catchError((error){
+      throw '${error?.message??''}';
+    });
   }
 
 /*监听重量变化*/

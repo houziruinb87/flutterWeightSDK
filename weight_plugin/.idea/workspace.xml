@@ -13,6 +13,15 @@
   <component name="ChangeListManager">
     <list default="true" id="ec79c47f-fd96-4cd5-b2c8-aa6e35a1ac2a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/LabelPrinterMethodChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/LabelPrinterMethodChannel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightMethodChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightMethodChannel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/weight.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/weight.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +29,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="7975c4e9" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CL8A0020150196" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -205,12 +214,44 @@
       <option name="project" value="LOCAL" />
       <updated>1598584218816</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="refactor:0.0.19发版,改为广播流">
+      <created>1598585642313</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1598585642313</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/Users/hzr/Documents/flutterProject/weight/weight_plugin" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -219,6 +260,11 @@
           </value>
         </entry>
       </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
@@ -239,17 +285,7 @@
     <MESSAGE value="refactor:0.0.16发版,打印再次封装为对象" />
     <MESSAGE value="refactor:0.0.17发版,添加构造函数" />
     <MESSAGE value="refactor:0.0.18发版,添加构造函数" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor:0.0.18发版,添加构造函数" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/LabelPrinterMethodChannel.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="refactor:0.0.19发版,改为广播流" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor:0.0.19发版,改为广播流" />
   </component>
 </project>

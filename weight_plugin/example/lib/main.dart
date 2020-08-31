@@ -30,24 +30,11 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     Weight.weightChannelOpen;
     Weight.onWeightChange.listen((event) {
-      if(event is WeighDetailModel){
-      String weightModel =event.model;
-      String weightStatus = event.status;
-      isZero = event.isZero;
-      isStable = event.isStable;
-      weightNetWeight = event.netWeight;
-
-      printWhenStable();
-      if (isZero) {
-        isCurrentPrintSuccess = false;
-      }
-      if (mounted) {
+      if (event is WeighDetailModel) {
         setState(() {
           weightNetWeight = event.netWeight;
         });
       }
-      }
-//      print("回调");
     });
   }
 
@@ -67,53 +54,48 @@ class _MyAppState extends State<MyApp> {
                 color: Colors.red,
                 child: InkWell(
                   onTap: () async {
-                    //拼接打印参数
-                    HashMap hashMap = HashMap<String, String>();
-                    //标题
-                    hashMap.putIfAbsent(
-                        WeightConstants.PRINT_PARAM_TITLE, () => "电饭锅梵蒂冈");
-                    //规格
-                    hashMap.putIfAbsent(
-                        WeightConstants.PRINT_PARAM_SPEC, () => "100ml*100");
-                    //净重
-                    hashMap.putIfAbsent(WeightConstants.PRINT_PARAM_NET_WEIGHT,
-                        () => weightNetWeight);
-                    //打印时间(必须是YYYYMMDD)
-                    hashMap.putIfAbsent(
-                        WeightConstants.PRINT_PARAM_TIME, () => "20200101");
-                    //存储条件
-                    hashMap.putIfAbsent(
-                        WeightConstants.PRINT_PARAM_STORE_CONDITION,
-                        () => "常温");
-                    //原料码
-                    hashMap.putIfAbsent(
-                        WeightConstants.PRINT_PARAM_MATERIAL_CODE,
-                        () => "34234562");
-                    //SKU码
-                    hashMap.putIfAbsent(WeightConstants.PRINT_PARAM_SKU_CODE,
-                        () => "dfgdfgdfgdfg-34435-2");
-                    //唯一码
-                    hashMap.putIfAbsent(WeightConstants.PRINT_PARAM_PACKAGE_NUM,
-                        () => "WH00000000012345");
+//                    //拼接打印参数
+//                    HashMap hashMap = HashMap<String, String>();
+//                    //标题
+//                    hashMap.putIfAbsent(
+//                        WeightConstants.PRINT_PARAM_TITLE, () => "电饭锅梵蒂冈");
+//                    //规格
+//                    hashMap.putIfAbsent(
+//                        WeightConstants.PRINT_PARAM_SPEC, () => "100ml*100");
+//                    //净重
+//                    hashMap.putIfAbsent(WeightConstants.PRINT_PARAM_NET_WEIGHT,
+//                        () => weightNetWeight);
+//                    //打印时间(必须是YYYYMMDD)
+//                    hashMap.putIfAbsent(
+//                        WeightConstants.PRINT_PARAM_TIME, () => "20200101");
+//                    //存储条件
+//                    hashMap.putIfAbsent(
+//                        WeightConstants.PRINT_PARAM_STORE_CONDITION,
+//                        () => "常温");
+//                    //原料码
+//                    hashMap.putIfAbsent(
+//                        WeightConstants.PRINT_PARAM_MATERIAL_CODE,
+//                        () => "34234562");
+//                    //SKU码
+//                    hashMap.putIfAbsent(WeightConstants.PRINT_PARAM_SKU_CODE,
+//                        () => "dfgdfgdfgdfg-34435-2");
+//                    //唯一码
+//                    hashMap.putIfAbsent(WeightConstants.PRINT_PARAM_PACKAGE_NUM,
+//                        () => "WH00000000012345");
 
-                    //打印前先判断打印机状态
-                    int printStatusInt =
-                        await Weight.weightChannelGetIntPrintStatus;
-                    if (printStatusInt == 0) {
-                      //打印机状态正常
-                      bool printBool =
-                          await Weight.weightChannelPrintBitmap(hashMap);
-                      if (printBool) {
-                        print("打印成功");
-                      } else {
-                        print("打印失败");
-                      }
-                    } else {
-                      //打印机状态异常,查询具体异常信息
-                      String printStatusString =
-                          await Weight.weightChannelGetStringPrintStats;
-                      print(printStatusString);
-                    }
+                    WeighPrintModel weighPrintModel = WeighPrintModel(
+                        "电饭锅梵蒂冈",
+                        "100ml*100",
+                        weightNetWeight + "",
+                        "20200101",
+                        "常温",
+                        "34234562",
+                        "dfgdfgdfgdfg-34435-2",
+                        "WH00000000012345");
+                    await Weight.weightChannelPrint(weighPrintModel)
+                        .catchError((error) {
+                        print("${error}");
+                    });
                   },
                 ),
               ),
@@ -123,8 +105,14 @@ class _MyAppState extends State<MyApp> {
                 color: Colors.blue,
                 child: InkWell(
                   onTap: () async {
-                    String zeroString = await Weight.weightChannelSetZero;
-                    print(zeroString);
+                    String zeroString =
+                        await Weight.weightChannelSetZero.catchError((error) {
+                      if (error is PlatformException) {
+                        print("code==" + error.code);
+                        print("message==" + error.message);
+                        print("detail==" + error.details);
+                      }
+                    });
                   },
                 ),
               ),
@@ -157,8 +145,15 @@ class _MyAppState extends State<MyApp> {
                     //     * case 7:
                     //     *     showmsg("打印机未知异常");
                     //     *     break;
-                    String printStatusString =
-                        await Weight.weightChannelGetStringPrintStats;
+                    String printStatusString = await Weight
+                        .weightChannelGetStringPrintStats
+                        .catchError((error) {
+                      if (error is PlatformException) {
+                        print("code==" + error.code);
+                        print("message==" + error.message);
+                        print("detail==" + error.details);
+                      }
+                    });
                     print(printStatusString);
                   },
                 ),
@@ -192,8 +187,15 @@ class _MyAppState extends State<MyApp> {
                     //     * case 7:
                     //     *     showmsg("打印机未知异常");
                     //     *     break;
-                    int printStatusInt =
-                        await Weight.weightChannelGetIntPrintStatus;
+                    int printStatusInt = await Weight
+                        .weightChannelGetIntPrintStatus
+                        .catchError((error) {
+                      if (error is PlatformException) {
+                        print("code==" + error.code);
+                        print("message==" + error.message);
+                        print("detail==" + error.details);
+                      }
+                    });
                     print(printStatusInt);
                   },
                 ),
@@ -219,8 +221,15 @@ class _MyAppState extends State<MyApp> {
   Future<bool> printWhenStable() async {
     //不在0点并且稳定, 且当前物品没有打印成功 开始自动打印
     if (!isZero && isStable && !isCurrentPrintSuccess) {
-
-      WeighPrintModel weighPrintModel = WeighPrintModel("刚哥威武霸气吊炸天","10000ml*19","200","2020-11-12 23:31:43","刚哥咋这nb","1203912389","SJ989-23SDF-23RK","SJ989-SDFKJ1-1498723SDF-23RK");
+      WeighPrintModel weighPrintModel = WeighPrintModel(
+          "刚哥威武霸气吊炸天",
+          "10000ml*19",
+          "200",
+          "2020-11-12 23:31:43",
+          "刚哥咋这nb",
+          "1203912389",
+          "SJ989-23SDF-23RK",
+          "SJ989-SDFKJ1-1498723SDF-23RK");
       weighPrintModel.skuName = "刚哥威武霸气吊炸天";
       weighPrintModel.skuSpec = "10000ml*19";
       weighPrintModel.netWeigh = "200";
@@ -229,15 +238,13 @@ class _MyAppState extends State<MyApp> {
       weighPrintModel.materialCode = "1203912389";
       weighPrintModel.skuCode = "SJ989-23SDF-23RK";
       weighPrintModel.snCode = "SJ989-SDFKJ1-1498723SDF-23RK";
-      isCurrentPrintSuccess =await Weight.weightChannelPrint(weighPrintModel);
-      if(!isCurrentPrintSuccess){
+      isCurrentPrintSuccess = await Weight.weightChannelPrint(weighPrintModel);
+      if (!isCurrentPrintSuccess) {
         //打印机状态不正常,查询具体异常信息
         String printStatusString =
-        await Weight.weightChannelGetStringPrintStats; //具体异常信息
+            await Weight.weightChannelGetStringPrintStats; //具体异常信息
       }
       return isCurrentPrintSuccess;
-
-
 
 //      //判断打印机状态
 //      int printStatusInt = await Weight.weightChannelGetIntPrintStatus;

@@ -2,8 +2,6 @@ package com.missfresh.weight;
 
 import android.content.Context;
 
-import com.missfresh.labelprinter.MFLabelPrinter;
-
 import androidx.annotation.NonNull;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
@@ -14,7 +12,6 @@ import static com.missfresh.weight.WeightConstants.WEIGHT_CHANNEL_CLOSE;
 import static com.missfresh.weight.WeightConstants.WEIGHT_CHANNEL_GET_RAW_WEIGHT_MESSAGE;
 import static com.missfresh.weight.WeightConstants.WEIGHT_CHANNEL_OPEN;
 import static com.missfresh.weight.WeightConstants.WEIGHT_CHANNEL_SET_ZERO;
-import static com.missfresh.weight.WeightConstants.WEIGHT_CHANNEL_WEIGH_INIT;
 
 /**
  * 称重通信渠道
@@ -33,40 +30,36 @@ public class WeightMethodChannel implements MethodChannel.MethodCallHandler {
 
     @Override
     public void onMethodCall(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
-        //称重初始化
-        //        if (methodCall.method.equals(WEIGHT_CHANNEL_WEIGH_INIT)) {
-        //            boolean isSuccess = MFLabelPrinter.init(mContext);
-        //            result.success(isSuccess);
-        //        }
 
-        //判断是否是称重加工设备
-        if (methodCall.method.equals(IS_WEIGHT_PLATFORM)) {
-            result.success(MFWeighUtil.isWeighDevice());
-        }
-        //开启重量硬件端口
-        else if (methodCall.method.equals(WEIGHT_CHANNEL_OPEN)) {
-            if (MFWeigh.getInstance() != null) {
+        if (MFWeigh.getInstance() != null) {
+            //判断是否是称重加工设备
+            if (methodCall.method.equals(IS_WEIGHT_PLATFORM)) {
+                result.success(MFWeighUtil.isWeighDevice());
+            }
+            //开启重量硬件端口
+            else if (methodCall.method.equals(WEIGHT_CHANNEL_OPEN)) {
                 boolean isSuccess = MFWeigh.getInstance().open();
                 result.success(isSuccess);
-            }
-
-        } else if (methodCall.method.equals(WEIGHT_CHANNEL_CLOSE)) {
-            // 1, 关闭成功, 其他返回关闭失败
-            boolean isSuccess = MFWeigh.getInstance().close();
-            result.success(isSuccess);
-        } else if (methodCall.method.equals(WEIGHT_CHANNEL_GET_RAW_WEIGHT_MESSAGE)) {
-            // 1, 关闭成功, 其他返回关闭失败
-            String weightResult = MFWeigh.getInstance().getWeightResult();
-            result.success(weightResult);
-        } else if (methodCall.method.equals(WEIGHT_CHANNEL_SET_ZERO)) {
-            //返回:归零成功   或者其他异常状态
-            if(MFWeigh.getInstance()!=null){
-                String weightResult = MFWeigh.getInstance().setZero();
+                //关闭端口
+            } else if (methodCall.method.equals(WEIGHT_CHANNEL_CLOSE)) {
+                boolean isSuccess = MFWeigh.getInstance().close();
+                result.success(isSuccess);
+                //获取未处理的称重信息
+            } else if (methodCall.method.equals(WEIGHT_CHANNEL_GET_RAW_WEIGHT_MESSAGE)) {
+                String weightResult = MFWeigh.getInstance().getWeightResult();
                 result.success(weightResult);
-            }else {
-                result.success("称重未初始化");
+                //归零
+            } else if (methodCall.method.equals(WEIGHT_CHANNEL_SET_ZERO)) {
+                //返回:归零成功   或者其他异常状态
+                String weightResult = MFWeigh.getInstance().setZero();
+                if (weightResult.equals("归零成功")) {
+                    result.success(weightResult);
+                } else {
+                    result.error(weightResult + "", weightResult, weightResult);
+                }
             }
-
+        } else {
+            result.error("称重未初始化", "称重未初始化", "称重未初始化");
         }
 
     }
