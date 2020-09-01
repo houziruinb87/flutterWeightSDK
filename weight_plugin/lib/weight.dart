@@ -33,7 +33,7 @@ class Weight {
   }
 
   /*根据对象打印*/
-  static Future<bool> weightChannelPrint(WeighPrintModel weighPrintModel) async {
+  static Future<bool> weightChannelPrint(WeighPrintModel weighPrintModel)  {
 
 
       //打印机状态正常
@@ -75,9 +75,7 @@ class Weight {
           WeightConstants.PRINT_PARAM_PACKAGE_NUM, () => weighPrintModel?.snCode??'');
 
       //开始打印
-   return await Weight.weightChannelPrintBitmap(hashMap).catchError((error){
-     throw '${error?.message??''}';
-   });
+   return  Weight.weightChannelPrintBitmap(hashMap);
 
 
   }
@@ -140,7 +138,8 @@ class Weight {
   static Future<String> get weightChannelGetStringPrintStats async {
     return await _sLabelPrinterMethodChannel
         .invokeMethod(WeightConstants.LABEL_CHANNEL_GET_STRING_PRINT_STATUS).catchError((error){
-      throw '${error?.message??''}';
+//      throw '${error?.message??''}';
+    throw '${error.message}';
     });
   }
 
