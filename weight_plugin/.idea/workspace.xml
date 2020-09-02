@@ -11,12 +11,10 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec79c47f-fd96-4cd5-b2c8-aa6e35a1ac2a" name="Default Changelist" comment="">
+    <list default="true" id="ec79c47f-fd96-4cd5-b2c8-aa6e35a1ac2a" name="Default Changelist" comment="refactor:0.0.22发版,compile依赖">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/weight.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/weight.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -223,7 +221,28 @@
       <option name="project" value="LOCAL" />
       <updated>1598871441856</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="refactor:0.0.21发版,打印异常 异常已经转换为string">
+      <created>1598960355626</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1598960355627</updated>
+    </task>
+    <task id="LOCAL-00023" summary="refactor:0.0.22发版,compile依赖">
+      <created>1599013533009</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1599013533009</updated>
+    </task>
+    <task id="LOCAL-00024" summary="refactor:0.0.23发版,修复time判断">
+      <created>1599034510698</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1599034510699</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -289,6 +308,9 @@
     <MESSAGE value="refactor:0.0.18发版,添加构造函数" />
     <MESSAGE value="refactor:0.0.19发版,改为广播流" />
     <MESSAGE value="refactor:0.0.20发版,将异常抛出" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor:0.0.20发版,将异常抛出" />
+    <MESSAGE value="refactor:0.0.21发版,打印异常 异常已经转换为string" />
+    <MESSAGE value="refactor:0.0.22发版,compile依赖" />
+    <MESSAGE value="refactor:0.0.23发版,修复time判断" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor:0.0.23发版,修复time判断" />
   </component>
 </project>

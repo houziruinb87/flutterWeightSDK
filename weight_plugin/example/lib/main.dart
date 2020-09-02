@@ -87,7 +87,7 @@ class _MyAppState extends State<MyApp> {
                         "电饭锅梵蒂冈",
                         "100ml*100",
                         weightNetWeight + "",
-                        "20200101",
+                        "2020-01-01 15:12:12",
                         "常温",
                         "34234562",
                         "dfgdfgdfgdfg-34435-2",
