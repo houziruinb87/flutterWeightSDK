@@ -491,7 +491,7 @@ public class BitMapUtil {
         } else {
             stringBuilder.append("s=" + "" + "&");
         }
-        if (skuId != null) {
+        if (time != null) {
             stringBuilder.append("t=" + time + "&");
         } else {
             stringBuilder.append("t=" + "" + "&");
