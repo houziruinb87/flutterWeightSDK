@@ -436,12 +436,13 @@ public class BitMapUtil {
      */
     private static String convertTime(String time) {
         if (time != null && time.length() == 8) {
+            String tempTime = time;
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append(time.substring(0, 4));
+            stringBuilder.append(tempTime.substring(0, 4));
             stringBuilder.append("/");
-            stringBuilder.append(time.substring(4, 6));
+            stringBuilder.append(tempTime.substring(4, 6));
             stringBuilder.append("/");
-            stringBuilder.append(time.substring(6));
+            stringBuilder.append(tempTime.substring(6));
             return stringBuilder.toString();
 
         } else {

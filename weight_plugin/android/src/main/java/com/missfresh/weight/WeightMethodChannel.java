@@ -55,6 +55,9 @@ public class WeightMethodChannel implements MethodChannel.MethodCallHandler {
                 if (weightResult.equals("归零成功")) {
                     result.success(weightResult);
                 } else {
+                    if(weightResult.equals("AD值溢出")){
+                        weightResult = "重量超过300g无法手动归零,请清空托盘后重启设备,系统进行自动归零";
+                    }
                     result.error(weightResult + "", weightResult, weightResult);
                 }
             }
