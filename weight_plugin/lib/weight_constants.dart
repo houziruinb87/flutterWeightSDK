@@ -53,6 +53,10 @@ class WeightConstants{
   static const String PRINT_PARAM_SKU_CODE = "PRINT_PARAM_SKU_CODE";
   //包裹号(SN)
   static const String PRINT_PARAM_PACKAGE_NUM = "PRINT_PARAM_PACKAGE_NUM";
+  //批次号
+  static const  String PRINT_PARAM_BATCH_CODE = "PRINT_PARAM_BATCH_CODE";
+  //包装时间
+  static const  String PRINT_PARAM_PACKAGE_TIME = "PRINT_PARAM_PACKAGE_TIME";
 
 
 

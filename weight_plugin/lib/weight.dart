@@ -47,6 +47,8 @@ class Weight {
       //净重
       hashMap.putIfAbsent(
           WeightConstants.PRINT_PARAM_NET_WEIGHT, () => weighPrintModel?.netWeigh??'');
+
+      //生产时间
       String time = weighPrintModel?.createTime ?? '';
       String yyyy_MM_dd = '';
       String yyyyMMdd = '';
@@ -61,7 +63,29 @@ class Weight {
         }
       }
       hashMap.putIfAbsent(WeightConstants.PRINT_PARAM_TIME, () => yyyyMMdd);
-      //存储条件
+
+      //包装时间
+      String packageTime = weighPrintModel?.packageTime ?? '';
+      String packageTime_yyyy_MM_dd = '';
+      String packageTime_yyyyMMdd = '';
+      //打印时间(必须是yyyyMMdd)
+      if(weighPrintModel.createTime!=null){
+        //当前获取到的是yyyy-MM-dd HH:mm:ss
+        //打印时间(必须是YYYYMMDD)
+
+        if (time.length >= 10) {
+          packageTime_yyyy_MM_dd = packageTime.substring(0, 10);
+          packageTime_yyyyMMdd = packageTime_yyyy_MM_dd.replaceAll('-', '');
+        }
+      }
+      hashMap.putIfAbsent(WeightConstants.PRINT_PARAM_PACKAGE_TIME, () => packageTime_yyyyMMdd);
+
+
+//批次号
+    hashMap.putIfAbsent(
+        WeightConstants.PRINT_PARAM_BATCH_CODE, () => weighPrintModel?.batchCode??'');
+
+    //存储条件
       hashMap.putIfAbsent(
           WeightConstants.PRINT_PARAM_STORE_CONDITION, () => weighPrintModel?.storeCondition??'');
       //原料码

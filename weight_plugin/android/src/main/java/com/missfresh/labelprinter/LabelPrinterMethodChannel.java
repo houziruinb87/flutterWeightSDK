@@ -14,10 +14,12 @@ import io.flutter.plugin.common.MethodChannel;
 import static com.missfresh.weight.WeightConstants.LABEL_CHANNEL_GET_INT_PRINT_STATUS;
 import static com.missfresh.weight.WeightConstants.LABEL_CHANNEL_GET_STRING_PRINT_STATUS;
 import static com.missfresh.weight.WeightConstants.LABEL_PRINTER_CHANNEL_PRINT_BITMAP;
+import static com.missfresh.weight.WeightConstants.PRINT_PARAM_BATCH_CODE;
 import static com.missfresh.weight.WeightConstants.PRINT_PARAM_MAP;
 import static com.missfresh.weight.WeightConstants.PRINT_PARAM_MATERIAL_CODE;
 import static com.missfresh.weight.WeightConstants.PRINT_PARAM_NET_WEIGHT;
 import static com.missfresh.weight.WeightConstants.PRINT_PARAM_PACKAGE_NUM;
+import static com.missfresh.weight.WeightConstants.PRINT_PARAM_PACKAGE_TIME;
 import static com.missfresh.weight.WeightConstants.PRINT_PARAM_SKU_CODE;
 import static com.missfresh.weight.WeightConstants.PRINT_PARAM_SPEC;
 import static com.missfresh.weight.WeightConstants.PRINT_PARAM_STORE_CONDITION;
@@ -50,7 +52,8 @@ public class LabelPrinterMethodChannel implements MethodChannel.MethodCallHandle
                     //当前打印状态正常
                     if(MFLabelPrinter.getInstance().getIntPrintStatus()==0){
                         HashMap<String, String> arguments = methodCall.argument(PRINT_PARAM_MAP);
-                        boolean isSuccess = MFLabelPrinter.getInstance().printBitmap(arguments.get(PRINT_PARAM_TITLE), arguments.get(PRINT_PARAM_SPEC), arguments.get(PRINT_PARAM_NET_WEIGHT), arguments.get(PRINT_PARAM_TIME), arguments.get(PRINT_PARAM_STORE_CONDITION), arguments.get(PRINT_PARAM_MATERIAL_CODE), arguments.get(PRINT_PARAM_SKU_CODE), arguments.get(PRINT_PARAM_PACKAGE_NUM));
+//                        boolean isSuccess = MFLabelPrinter.getInstance().printBitmap(arguments.get(PRINT_PARAM_TITLE), arguments.get(PRINT_PARAM_SPEC), arguments.get(PRINT_PARAM_NET_WEIGHT), arguments.get(PRINT_PARAM_TIME), arguments.get(PRINT_PARAM_STORE_CONDITION), arguments.get(PRINT_PARAM_MATERIAL_CODE), arguments.get(PRINT_PARAM_SKU_CODE), arguments.get(PRINT_PARAM_PACKAGE_NUM));
+                        boolean isSuccess = MFLabelPrinter.getInstance().printBitmapNew(arguments.get(PRINT_PARAM_TITLE), arguments.get(PRINT_PARAM_SPEC), arguments.get(PRINT_PARAM_NET_WEIGHT), arguments.get(PRINT_PARAM_TIME), arguments.get(PRINT_PARAM_STORE_CONDITION), arguments.get(PRINT_PARAM_MATERIAL_CODE), arguments.get(PRINT_PARAM_SKU_CODE), arguments.get(PRINT_PARAM_PACKAGE_NUM),arguments.get(PRINT_PARAM_BATCH_CODE),arguments.get(PRINT_PARAM_PACKAGE_TIME));
                            result.success(isSuccess);
 
                     }else {

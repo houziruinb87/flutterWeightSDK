@@ -17,8 +17,13 @@ class WeighPrintModel {
   //唯一码
   String snCode;
 
+  //批次号
+  String batchCode;
+//真实生产日期
+  String packageTime;
+
   WeighPrintModel(this.skuName, this.skuSpec, this.netWeigh, this.createTime,
-      this.storeCondition, this.materialCode, this.skuCode, this.snCode);
+      this.storeCondition, this.materialCode, this.skuCode, this.snCode,this.batchCode,this.packageTime);
 
 
 

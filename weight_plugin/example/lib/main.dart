@@ -91,7 +91,9 @@ class _MyAppState extends State<MyApp> {
                         "常温",
                         "34234562",
                         "dfgdfgdfgdfg-34435-2",
-                        "WH00000000012345");
+                        "WH00000000012345",
+                        "picihaozhenniub",
+                        "2022-01-02 12:31:42");
                     await Weight.weightChannelPrint(weighPrintModel)
                         .catchError((error) {
                         print("${error}");
@@ -229,7 +231,9 @@ class _MyAppState extends State<MyApp> {
           "刚哥咋这nb",
           "1203912389",
           "SJ989-23SDF-23RK",
-          "SJ989-SDFKJ1-1498723SDF-23RK");
+          "SJ989-SDFKJ1-1498723SDF-23RK",
+          "picihaozhenniub",
+      "2022-01-02 12:31:42");
       weighPrintModel.skuName = "刚哥威武霸气吊炸天";
       weighPrintModel.skuSpec = "10000ml*19";
       weighPrintModel.netWeigh = "200";

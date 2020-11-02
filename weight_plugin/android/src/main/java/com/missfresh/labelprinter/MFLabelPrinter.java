@@ -194,4 +194,29 @@ public class MFLabelPrinter {
            return false;
        }
     }
+
+    /**
+     *
+     * @param title 打印标题
+     * @param spec  打印规格
+     * @param netWeight 净重
+     * @param time  生产时间
+     * @param storeCondition 存储条件
+     * @param materialCode 原料编码
+     * @param SKUCode sku编码
+     * @param SNCode 包裹号
+     * @return 打印是否成功
+     */
+    public boolean printBitmapNew(String title, String spec, String netWeight, String time, String storeCondition, String materialCode, String SKUCode, String SNCode,String batchCode,String packageTime){
+        if(mContext!=null){
+            int printerStatus = mLabelPrinter.GetStatus();
+            if(printerStatus != 0){
+                return false;
+            }else {
+                return   mLabelPrinter.PrintLabelBitmap( BitMapUtilNewTime.createBitmap(mContext,title,spec,netWeight,time,storeCondition,SNCode,materialCode,SKUCode,batchCode,packageTime));
+            }
+        }else {
+            return false;
+        }
+    }
 }

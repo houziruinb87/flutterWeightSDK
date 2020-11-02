@@ -65,5 +65,10 @@ public class WeightConstants {
     //包裹号
     public static final String PRINT_PARAM_PACKAGE_NUM = "PRINT_PARAM_PACKAGE_NUM";
 
+    //批次号
+    public static final String PRINT_PARAM_BATCH_CODE = "PRINT_PARAM_BATCH_CODE";
+    //包装时间
+    public static final String PRINT_PARAM_PACKAGE_TIME = "PRINT_PARAM_PACKAGE_TIME";
+
 
 }
