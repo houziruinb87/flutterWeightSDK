@@ -31,7 +31,14 @@ class Weight {
       throw '${error?.message??''}';
     });
   }
-
+/*打印bitmap*/
+  static Future<bool> weightChannelPrintBitmapNew(HashMap map) async {
+    return await _sLabelPrinterMethodChannel.invokeMethod(
+        WeightConstants.LABEL_PRINTER_CHANNEL_PRINT_BITMAP_NEW,
+        {WeightConstants.PRINT_PARAM_MAP: map}).catchError((error){
+      throw '${error?.message??''}';
+    });
+  }
   /*根据对象打印*/
   static Future<bool> weightChannelPrint(WeighPrintModel weighPrintModel)  {
 

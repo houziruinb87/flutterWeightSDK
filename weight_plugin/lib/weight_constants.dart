@@ -14,6 +14,8 @@ class WeightConstants{
   static const String LABEL_CHANNEL_GET_INT_PRINT_STATUS = "label_channel_get_int_print_status";
   static const String LABEL_CHANNEL_GET_STRING_PRINT_STATUS = "label_channel_get_string_print_status";
   static const String LABEL_PRINTER_CHANNEL_PRINT_BITMAP = "label_printer_channel_print_bitmap";
+  static const String LABEL_PRINTER_CHANNEL_PRINT_BITMAP_NEW = "label_printer_channel_print_bitmap_new";
+
   static const String LABEL_PRINTER_CHANNEL_INIT = "label_printer_channel_init";
 
   //称重

@@ -20,6 +20,7 @@ public class WeightConstants {
     public static final String LABEL_CHANNEL_GET_STRING_PRINT_STATUS = "label_channel_get_string_print_status";
     //查询打印机打印bitmap
     public static final String LABEL_PRINTER_CHANNEL_PRINT_BITMAP = "label_printer_channel_print_bitmap";
+    public static final String LABEL_PRINTER_CHANNEL_PRINT_BITMAP_NEW = "label_printer_channel_print_bitmap_new";
     public static final String LABEL_PRINTER_CHANNEL_INIT = "label_printer_channel_init";
 
     //称重
