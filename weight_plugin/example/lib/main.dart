@@ -91,9 +91,7 @@ class _MyAppState extends State<MyApp> {
                         "常温",
                         "34234562",
                         "dfgdfgdfgdfg-34435-2",
-                        "WH00000000012345",
-                        "picihaozhenniub",
-                        "2022-01-02 12:31:42");
+                        "WH00000000012345");
                     await Weight.weightChannelPrint(weighPrintModel)
                         .catchError((error) {
                         print("${error}");

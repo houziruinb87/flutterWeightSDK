@@ -71,26 +71,26 @@ class Weight {
       }
       hashMap.putIfAbsent(WeightConstants.PRINT_PARAM_TIME, () => yyyyMMdd);
 
-      //包装时间
-      String packageTime = weighPrintModel?.packageTime ?? '';
-      String packageTime_yyyy_MM_dd = '';
-      String packageTime_yyyyMMdd = '';
-      //打印时间(必须是yyyyMMdd)
-      if(weighPrintModel.createTime!=null){
-        //当前获取到的是yyyy-MM-dd HH:mm:ss
-        //打印时间(必须是YYYYMMDD)
+      // //包装时间
+      // String packageTime = weighPrintModel?.packageTime ?? '';
+      // String packageTime_yyyy_MM_dd = '';
+      // String packageTime_yyyyMMdd = '';
+      // //打印时间(必须是yyyyMMdd)
+      // if(weighPrintModel.createTime!=null){
+      //   //当前获取到的是yyyy-MM-dd HH:mm:ss
+      //   //打印时间(必须是YYYYMMDD)
+      //
+      //   if (time.length >= 10) {
+      //     packageTime_yyyy_MM_dd = packageTime.substring(0, 10);
+      //     packageTime_yyyyMMdd = packageTime_yyyy_MM_dd.replaceAll('-', '');
+      //   }
+      // }
+      // hashMap.putIfAbsent(WeightConstants.PRINT_PARAM_PACKAGE_TIME, () => packageTime_yyyyMMdd);
 
-        if (time.length >= 10) {
-          packageTime_yyyy_MM_dd = packageTime.substring(0, 10);
-          packageTime_yyyyMMdd = packageTime_yyyy_MM_dd.replaceAll('-', '');
-        }
-      }
-      hashMap.putIfAbsent(WeightConstants.PRINT_PARAM_PACKAGE_TIME, () => packageTime_yyyyMMdd);
-
-
-//批次号
-    hashMap.putIfAbsent(
-        WeightConstants.PRINT_PARAM_BATCH_CODE, () => weighPrintModel?.batchCode??'');
+//
+// //批次号
+//     hashMap.putIfAbsent(
+//         WeightConstants.PRINT_PARAM_BATCH_CODE, () => weighPrintModel?.batchCode??'');
 
     //存储条件
       hashMap.putIfAbsent(
@@ -110,7 +110,76 @@ class Weight {
 
 
   }
+/*根据对象打印*/
+  static Future<bool> weightChannelPrintNew(WeighPrintModel weighPrintModel)  {
 
+
+    //打印机状态正常
+    //拼接打印参数
+    HashMap hashMap = HashMap<String, String>();
+    //标题
+    hashMap.putIfAbsent(WeightConstants.PRINT_PARAM_TITLE, () => weighPrintModel?.skuName??'');
+    //规格
+    hashMap.putIfAbsent(
+        WeightConstants.PRINT_PARAM_SPEC, () => weighPrintModel?.skuSpec??'');
+    //净重
+    hashMap.putIfAbsent(
+        WeightConstants.PRINT_PARAM_NET_WEIGHT, () => weighPrintModel?.netWeigh??'');
+
+    //生产时间
+    String time = weighPrintModel?.createTime ?? '';
+    String yyyy_MM_dd = '';
+    String yyyyMMdd = '';
+    //打印时间(必须是yyyyMMdd)
+    if(weighPrintModel.createTime!=null){
+      //当前获取到的是yyyy-MM-dd HH:mm:ss
+      //打印时间(必须是YYYYMMDD)
+
+      if (time.length >= 10) {
+        yyyy_MM_dd = time.substring(0, 10);
+        yyyyMMdd = yyyy_MM_dd.replaceAll('-', '');
+      }
+    }
+    hashMap.putIfAbsent(WeightConstants.PRINT_PARAM_TIME, () => yyyyMMdd);
+
+    //包装时间
+    String packageTime = weighPrintModel?.packageTime ?? '';
+    String packageTime_yyyy_MM_dd = '';
+    String packageTime_yyyyMMdd = '';
+    //打印时间(必须是yyyyMMdd)
+    if(weighPrintModel.packageTime!=null){
+      //当前获取到的是yyyy-MM-dd HH:mm:ss
+      //打印时间(必须是YYYYMMDD)
+
+      if (time.length >= 10) {
+        packageTime_yyyy_MM_dd = packageTime.substring(0, 10);
+        packageTime_yyyyMMdd = packageTime_yyyy_MM_dd.replaceAll('-', '');
+      }
+    }
+    hashMap.putIfAbsent(WeightConstants.PRINT_PARAM_PACKAGE_TIME, () => packageTime_yyyyMMdd);
+
+//批次号
+    hashMap.putIfAbsent(
+        WeightConstants.PRINT_PARAM_BATCH_CODE, () => weighPrintModel?.batchCode??'');
+
+    //存储条件
+    hashMap.putIfAbsent(
+        WeightConstants.PRINT_PARAM_STORE_CONDITION, () => weighPrintModel?.storeCondition??'');
+    //原料码
+    hashMap.putIfAbsent(
+        WeightConstants.PRINT_PARAM_MATERIAL_CODE, () => weighPrintModel?.materialCode??'');
+    //SKU码
+    hashMap.putIfAbsent(
+        WeightConstants.PRINT_PARAM_SKU_CODE, () => weighPrintModel?.skuCode??'');
+    //唯一码
+    hashMap.putIfAbsent(
+        WeightConstants.PRINT_PARAM_PACKAGE_NUM, () => weighPrintModel?.snCode??'');
+
+    //开始打印
+    return  Weight.weightChannelPrintBitmapNew(hashMap);
+
+
+  }
   /*获取打印状态int*/
   //  * 查询打印机状态,0是正常,不剥纸时可 返回2（未取纸）时也进行打印
   //     * @return
