@@ -289,6 +289,11 @@ public class BitMapUtil {
         contentTextPaint.setTextSize(contentTextSize);
         contentTextPaint.setTypeface(Typeface.DEFAULT);
 
+        Paint littleContentTextPaint = new Paint();
+        littleContentTextPaint.setStyle(Paint.Style.FILL);
+        littleContentTextPaint.setAntiAlias(true);
+        littleContentTextPaint.setTextSize(18);
+        littleContentTextPaint.setTypeface(Typeface.DEFAULT);
         //画内容
         int textLineHeight = (marginTop2 + subTitleTextSize + marginTop2 + marginBottom2);
         //第一行
@@ -297,10 +302,13 @@ public class BitMapUtil {
         if (spec != null) {
             canvas.drawText(spec, 4 * subTitleTextSize+ marginLeft6, line1Height, contentTextPaint);
         }
-        canvas.drawText("净重", (int) (maxWidth / 2) , line1Height, subTitlePaint);
-        if (netWeight != null) {
-            canvas.drawText(netWeight, (int) (maxWidth / 2)  + (2 * subTitleTextSize)+ marginLeft6, line1Height, contentTextPaint);
-        }
+
+        canvas.drawText("如重量不足,将自动退还差额", (int) (maxWidth / 2) , line1Height, littleContentTextPaint);
+
+//        canvas.drawText("净重", (int) (maxWidth / 2) , line1Height, subTitlePaint);
+//        if (netWeight != null) {
+//            canvas.drawText(netWeight, (int) (maxWidth / 2)  + (2 * subTitleTextSize)+ marginLeft6, line1Height, contentTextPaint);
+//        }
         //第二行
         int line2Height = dashLineHeight + textLineHeight * 2;
         canvas.drawText("包装时间", 0, line2Height, subTitlePaint);
