@@ -305,7 +305,7 @@ public class BitMapUtilNewTime {
             canvas.drawText(spec, 4 * subTitleTextSize+ marginLeft6, line1Height, contentTextPaint);
         }
 //        canvas.drawText("净重", (int) (maxWidth / 2) , line1Height, subTitlePaint);
-        canvas.drawText("如重量不足,将自动退还差额", (int) (maxWidth / 2) , line1Height, littleContentTextPaint);
+        canvas.drawText("如重量不足,将自动退还差额", (int) (maxWidth / 2-10) , line1Height, littleContentTextPaint);
 //        if (netWeight != null) {
 //            canvas.drawText(netWeight, (int) (maxWidth / 2)  + (2 * subTitleTextSize)+ marginLeft6, line1Height, contentTextPaint);
 //        }
@@ -359,7 +359,7 @@ public class BitMapUtilNewTime {
 
         //第7行
         int line7Height = dashLineHeight + textLineHeight * 7;
-        canvas.drawText("批次号", 0, line7Height, subTitlePaint);
+        canvas.drawText("批  次  号", 0, line7Height, subTitlePaint);
         if(batchCode!=null){
             canvas.drawText(batchCode, 4 * subTitleTextSize+ marginLeft6, line7Height, contentTextPaint);
 
