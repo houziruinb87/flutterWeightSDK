@@ -104,8 +104,12 @@ class Weight {
       //唯一码
       hashMap.putIfAbsent(
           WeightConstants.PRINT_PARAM_PACKAGE_NUM, () => weighPrintModel?.snCode??'');
+    //唯一码
+    hashMap.putIfAbsent(
+        WeightConstants.PRINT_PARAM_WEIGHT_REFUND_FLAG, () => weighPrintModel?.weightRefundFlag??'');
 
-      //开始打印
+
+    //开始打印
    return  Weight.weightChannelPrintBitmap(hashMap);
 
 

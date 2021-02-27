@@ -12,14 +12,16 @@
   <component name="ChangeListManager">
     <list default="true" id="ec79c47f-fd96-4cd5-b2c8-aa6e35a1ac2a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/weigh_print_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/weigh_print_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/weight.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/weight.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CL8A0020270136" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_6P_API_28" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -299,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614397810358</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="refactor:0.0.32发版,增加状态判断,是否打印退款">
+      <created>1614412590634</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1614412590634</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -346,7 +355,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor:0.0.7发版" />
     <MESSAGE value="refactor:0.0.8发版,改回原来" />
     <MESSAGE value="refactor:0.0.9发版,切换到3.0.1,使用compileOnly" />
     <MESSAGE value="refactor:0.0.10发版 初始化加入try catch" />
@@ -371,17 +379,18 @@
     <MESSAGE value="refactor:0.0.29发版,去除净重" />
     <MESSAGE value="refactor:0.0.30发版,样式调整" />
     <MESSAGE value="refactor:0.0.31发版,增加状态判断,是否打印退款" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor:0.0.31发版,增加状态判断,是否打印退款" />
+    <MESSAGE value="refactor:0.0.32发版,增加状态判断,是否打印退款" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor:0.0.32发版,增加状态判断,是否打印退款" />
   </component>
   <component name="WindowStateProjectService">
     <state x="489" y="319" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607325102373">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="489" y="319" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1607325102373" />
-    <state x="325" y="59" key="CommitChangelistDialog2" timestamp="1614412571894">
+    <state x="325" y="59" key="CommitChangelistDialog2" timestamp="1614412590438">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="325" y="59" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1614412571894" />
+    <state x="325" y="59" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1614412590438" />
     <state x="100" y="84" width="1480" height="850" key="DiffContextDialog" timestamp="1605840887696">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -409,10 +418,10 @@
     </state>
     <state width="1628" height="476" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1606733649592" />
     <state width="1628" height="476" key="GridCell.Tab.0.right/0.23.1680.960@0.0.1680.1050" timestamp="1606792263707" />
-    <state x="340" y="202" key="Vcs.Push.Dialog.v2" timestamp="1614397812240">
+    <state x="340" y="202" key="Vcs.Push.Dialog.v2" timestamp="1614412593092">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="340" y="202" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1614397812240" />
+    <state x="340" y="202" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1614412593092" />
     <state x="594" y="431" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1614399593281">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
