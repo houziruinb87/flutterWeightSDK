@@ -101,7 +101,7 @@ public class BitMapUtilNewTime {
      *                * @param SKUCode sku编码
      * @return
      */
-    public static Bitmap createBitmap(Context context, String title, String spec, String netWeight, String time, String storeCondition, String SNCode, String materialCode, String SKUCode,String batchCode,String packageTime) {
+    public static Bitmap createBitmap(Context context, String title, String spec, String netWeight, String time, String storeCondition, String SNCode, String materialCode, String SKUCode,String batchCode,String packageTime,String weightRefundFlag) {
 
 
         Bitmap bitmap = Bitmap.createBitmap(maxWidth, maxHeight, Bitmap.Config.ARGB_8888);
@@ -117,7 +117,7 @@ public class BitMapUtilNewTime {
         String textTime = convertTime(packageTime);
         //生成显示的重量(g)
         String textWeight = convertWeight(netWeight);
-        drawContent(canvas, spec, textWeight, textTime, storeCondition, SNCode, materialCode, SKUCode,batchCode);
+        drawContent(canvas, spec, textWeight, textTime, storeCondition, SNCode, materialCode, SKUCode,batchCode,weightRefundFlag);
         drawBarCode(bitmap, barCodeContent);
         canvas.save();
 
@@ -273,7 +273,7 @@ public class BitMapUtilNewTime {
      * @param materialCode
      * @param SKUCode
      */
-    private static void drawContent(Canvas canvas, String spec, String netWeight, String time, String storeCondition, String SNCode, String materialCode, String SKUCode,String batchCode) {
+    private static void drawContent(Canvas canvas, String spec, String netWeight, String time, String storeCondition, String SNCode, String materialCode, String SKUCode,String batchCode,String weightRefundFlag) {
         //创建每一个小标题的画笔
         Paint subTitlePaint = new Paint();
         subTitlePaint.setStyle(Paint.Style.FILL);
@@ -305,7 +305,10 @@ public class BitMapUtilNewTime {
             canvas.drawText(spec, 4 * subTitleTextSize+ marginLeft6, line1Height, contentTextPaint);
         }
 //        canvas.drawText("净重", (int) (maxWidth / 2) , line1Height, subTitlePaint);
-        canvas.drawText("如重量不足,将自动退还差额", (int) (maxWidth / 2-10) , line1Height, littleContentTextPaint);
+     if(weightRefundFlag != null && weightRefundFlag.toCharArray().length!=0){
+         canvas.drawText("如重量不足,将自动退还差额", (int) (maxWidth / 2-10) , line1Height, littleContentTextPaint);
+     }
+
 //        if (netWeight != null) {
 //            canvas.drawText(netWeight, (int) (maxWidth / 2)  + (2 * subTitleTextSize)+ marginLeft6, line1Height, contentTextPaint);
 //        }

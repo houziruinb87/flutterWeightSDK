@@ -26,6 +26,7 @@ import static com.missfresh.weight.WeightConstants.PRINT_PARAM_SPEC;
 import static com.missfresh.weight.WeightConstants.PRINT_PARAM_STORE_CONDITION;
 import static com.missfresh.weight.WeightConstants.PRINT_PARAM_TIME;
 import static com.missfresh.weight.WeightConstants.PRINT_PARAM_TITLE;
+import static com.missfresh.weight.WeightConstants.PRINT_PARAM_WEIGHT_REFUND_FLAG;
 
 /**
  * 打印通信渠道
@@ -53,7 +54,7 @@ public class LabelPrinterMethodChannel implements MethodChannel.MethodCallHandle
                     //当前打印状态正常
                     if(MFLabelPrinter.getInstance().getIntPrintStatus()==0){
                         HashMap<String, String> arguments = methodCall.argument(PRINT_PARAM_MAP);
-                        boolean isSuccess = MFLabelPrinter.getInstance().printBitmap(arguments.get(PRINT_PARAM_TITLE), arguments.get(PRINT_PARAM_SPEC), arguments.get(PRINT_PARAM_NET_WEIGHT), arguments.get(PRINT_PARAM_TIME), arguments.get(PRINT_PARAM_STORE_CONDITION), arguments.get(PRINT_PARAM_MATERIAL_CODE), arguments.get(PRINT_PARAM_SKU_CODE), arguments.get(PRINT_PARAM_PACKAGE_NUM));
+                        boolean isSuccess = MFLabelPrinter.getInstance().printBitmap(arguments.get(PRINT_PARAM_TITLE), arguments.get(PRINT_PARAM_SPEC), arguments.get(PRINT_PARAM_NET_WEIGHT), arguments.get(PRINT_PARAM_TIME), arguments.get(PRINT_PARAM_STORE_CONDITION), arguments.get(PRINT_PARAM_MATERIAL_CODE), arguments.get(PRINT_PARAM_SKU_CODE), arguments.get(PRINT_PARAM_PACKAGE_NUM),arguments.get(PRINT_PARAM_WEIGHT_REFUND_FLAG));
 //                        boolean isSuccess = MFLabelPrinter.getInstance().printBitmapNew(arguments.get(PRINT_PARAM_TITLE), arguments.get(PRINT_PARAM_SPEC), arguments.get(PRINT_PARAM_NET_WEIGHT), arguments.get(PRINT_PARAM_TIME), arguments.get(PRINT_PARAM_STORE_CONDITION), arguments.get(PRINT_PARAM_MATERIAL_CODE), arguments.get(PRINT_PARAM_SKU_CODE), arguments.get(PRINT_PARAM_PACKAGE_NUM),arguments.get(PRINT_PARAM_BATCH_CODE),arguments.get(PRINT_PARAM_PACKAGE_TIME));
                            result.success(isSuccess);
 
@@ -61,7 +62,7 @@ public class LabelPrinterMethodChannel implements MethodChannel.MethodCallHandle
                         //打印状态不正常,拿到异常信息
                         String stringPrintStatus = MFLabelPrinter.getInstance().getStringPrintStatus();
                        if(stringPrintStatus!=null){
-                           result.error(stringPrintStatus,stringPrintStatus,stringPrintStatus);
+                           result.error("第一"+stringPrintStatus,"第二"+stringPrintStatus,"第三"+stringPrintStatus);
                        }else {
                            result.error("打印异常,未获取到异常信息","打印异常,未获取到异常信息","打印异常,未获取到异常信息");
                        }
@@ -76,7 +77,7 @@ public class LabelPrinterMethodChannel implements MethodChannel.MethodCallHandle
                     if(MFLabelPrinter.getInstance().getIntPrintStatus()==0){
                         HashMap<String, String> arguments = methodCall.argument(PRINT_PARAM_MAP);
                         //                        boolean isSuccess = MFLabelPrinter.getInstance().printBitmap(arguments.get(PRINT_PARAM_TITLE), arguments.get(PRINT_PARAM_SPEC), arguments.get(PRINT_PARAM_NET_WEIGHT), arguments.get(PRINT_PARAM_TIME), arguments.get(PRINT_PARAM_STORE_CONDITION), arguments.get(PRINT_PARAM_MATERIAL_CODE), arguments.get(PRINT_PARAM_SKU_CODE), arguments.get(PRINT_PARAM_PACKAGE_NUM));
-                        boolean isSuccess = MFLabelPrinter.getInstance().printBitmapNew(arguments.get(PRINT_PARAM_TITLE), arguments.get(PRINT_PARAM_SPEC), arguments.get(PRINT_PARAM_NET_WEIGHT), arguments.get(PRINT_PARAM_TIME), arguments.get(PRINT_PARAM_STORE_CONDITION), arguments.get(PRINT_PARAM_MATERIAL_CODE), arguments.get(PRINT_PARAM_SKU_CODE), arguments.get(PRINT_PARAM_PACKAGE_NUM),arguments.get(PRINT_PARAM_BATCH_CODE),arguments.get(PRINT_PARAM_PACKAGE_TIME));
+                        boolean isSuccess = MFLabelPrinter.getInstance().printBitmapNew(arguments.get(PRINT_PARAM_TITLE), arguments.get(PRINT_PARAM_SPEC), arguments.get(PRINT_PARAM_NET_WEIGHT), arguments.get(PRINT_PARAM_TIME), arguments.get(PRINT_PARAM_STORE_CONDITION), arguments.get(PRINT_PARAM_MATERIAL_CODE), arguments.get(PRINT_PARAM_SKU_CODE), arguments.get(PRINT_PARAM_PACKAGE_NUM),arguments.get(PRINT_PARAM_BATCH_CODE),arguments.get(PRINT_PARAM_PACKAGE_TIME),arguments.get(PRINT_PARAM_WEIGHT_REFUND_FLAG));
                         result.success(isSuccess);
 
                     }else {

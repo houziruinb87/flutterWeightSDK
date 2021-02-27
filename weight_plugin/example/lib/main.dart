@@ -148,13 +148,17 @@ class _MyAppState extends State<MyApp> {
                     String printStatusString = await Weight
                         .weightChannelGetStringPrintStats
                         .catchError((error) {
+                      print("error==" );
+
                       if (error is PlatformException) {
                         print("code==" + error.code);
                         print("message==" + error.message);
                         print("detail==" + error.details);
+                      }else{
+                        print("code==" + error.toString());
                       }
                     });
-                    print(printStatusString);
+                    // print(printStatusString);
                   },
                 ),
               ),

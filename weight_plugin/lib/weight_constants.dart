@@ -59,6 +59,9 @@ class WeightConstants{
   static const  String PRINT_PARAM_BATCH_CODE = "PRINT_PARAM_BATCH_CODE";
   //包装时间
   static const  String PRINT_PARAM_PACKAGE_TIME = "PRINT_PARAM_PACKAGE_TIME";
+  //是否打印称重退款
+  static const  String PRINT_PARAM_WEIGHT_REFUND_FLAG = "PRINT_PARAM_WEIGHT_REFUND_FLAG";
+
 
 
 

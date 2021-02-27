@@ -182,13 +182,13 @@ public class MFLabelPrinter {
      * @param SNCode 包裹号
      * @return 打印是否成功
      */
-    public boolean printBitmap(String title, String spec, String netWeight, String time, String storeCondition, String materialCode, String SKUCode, String SNCode){
+    public boolean printBitmap(String title, String spec, String netWeight, String time, String storeCondition, String materialCode, String SKUCode, String SNCode,String weightRefundFlag){
        if(mContext!=null){
            int printerStatus = mLabelPrinter.GetStatus();
            if(printerStatus != 0){
                return false;
            }else {
-               return   mLabelPrinter.PrintLabelBitmap( BitMapUtil.createBitmap(mContext,title,spec,netWeight,time,storeCondition,SNCode,materialCode,SKUCode));
+               return   mLabelPrinter.PrintLabelBitmap( BitMapUtil.createBitmap(mContext,title,spec,netWeight,time,storeCondition,SNCode,materialCode,SKUCode,weightRefundFlag));
            }
        }else {
            return false;
@@ -207,13 +207,13 @@ public class MFLabelPrinter {
      * @param SNCode 包裹号
      * @return 打印是否成功
      */
-    public boolean printBitmapNew(String title, String spec, String netWeight, String time, String storeCondition, String materialCode, String SKUCode, String SNCode,String batchCode,String packageTime){
+    public boolean printBitmapNew(String title, String spec, String netWeight, String time, String storeCondition, String materialCode, String SKUCode, String SNCode,String batchCode,String packageTime,String weightRefundFlag){
         if(mContext!=null){
             int printerStatus = mLabelPrinter.GetStatus();
             if(printerStatus != 0){
                 return false;
             }else {
-                return   mLabelPrinter.PrintLabelBitmap( BitMapUtilNewTime.createBitmap(mContext,title,spec,netWeight,time,storeCondition,SNCode,materialCode,SKUCode,batchCode,packageTime));
+                return   mLabelPrinter.PrintLabelBitmap( BitMapUtilNewTime.createBitmap(mContext,title,spec,netWeight,time,storeCondition,SNCode,materialCode,SKUCode,batchCode,packageTime,weightRefundFlag));
             }
         }else {
             return false;
