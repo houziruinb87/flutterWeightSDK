@@ -10,10 +10,11 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec79c47f-fd96-4cd5-b2c8-aa6e35a1ac2a" name="Default Changelist" comment="">
+    <list default="true" id="ec79c47f-fd96-4cd5-b2c8-aa6e35a1ac2a" name="Default Changelist" comment="refactor:0.0.34发版,增加状态判断,是否打印退款">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/weight.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/weight.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/BitMapUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/BitMapUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/BitMapUtilNewTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/BitMapUtilNewTime.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +22,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_6P_API_28" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CL8A0020270136" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -308,7 +309,21 @@
       <option name="project" value="LOCAL" />
       <updated>1614412590634</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="refactor:0.0.32发版,增加状态判断,是否打印退款">
+      <created>1614414820860</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1614414820860</updated>
+    </task>
+    <task id="LOCAL-00036" summary="refactor:0.0.34发版,增加状态判断,是否打印退款">
+      <created>1614414933349</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1614414933349</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -355,7 +370,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor:0.0.8发版,改回原来" />
     <MESSAGE value="refactor:0.0.9发版,切换到3.0.1,使用compileOnly" />
     <MESSAGE value="refactor:0.0.10发版 初始化加入try catch" />
     <MESSAGE value="refactor:0.0.11发版,增加armeabi" />
@@ -380,17 +394,18 @@
     <MESSAGE value="refactor:0.0.30发版,样式调整" />
     <MESSAGE value="refactor:0.0.31发版,增加状态判断,是否打印退款" />
     <MESSAGE value="refactor:0.0.32发版,增加状态判断,是否打印退款" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor:0.0.32发版,增加状态判断,是否打印退款" />
+    <MESSAGE value="refactor:0.0.34发版,增加状态判断,是否打印退款" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor:0.0.34发版,增加状态判断,是否打印退款" />
   </component>
   <component name="WindowStateProjectService">
     <state x="489" y="319" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607325102373">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="489" y="319" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1607325102373" />
-    <state x="325" y="59" key="CommitChangelistDialog2" timestamp="1614414912611">
+    <state x="325" y="59" key="CommitChangelistDialog2" timestamp="1614416616104">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="325" y="59" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1614414912611" />
+    <state x="325" y="59" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1614416616104" />
     <state x="100" y="84" width="1480" height="850" key="DiffContextDialog" timestamp="1605840887696">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -418,17 +433,53 @@
     </state>
     <state width="1628" height="476" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1606733649592" />
     <state width="1628" height="476" key="GridCell.Tab.0.right/0.23.1680.960@0.0.1680.1050" timestamp="1606792263707" />
-    <state x="340" y="202" key="Vcs.Push.Dialog.v2" timestamp="1614414822369">
+    <state x="340" y="202" key="Vcs.Push.Dialog.v2" timestamp="1614414935552">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="340" y="202" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1614414822369" />
+    <state x="340" y="202" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1614414935552" />
     <state x="594" y="431" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1614399593281">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="594" y="431" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1614399593281" />
-    <state x="443" y="230" width="793" height="590" key="find.popup" timestamp="1614397481256">
+    <state x="443" y="230" width="793" height="590" key="find.popup" timestamp="1614416039873">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="443" y="230" width="793" height="590" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1614397481256" />
+    <state x="443" y="230" width="793" height="590" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1614416039873" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/weight.dart</url>
+          <line>182</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/weight.dart</url>
+          <line>108</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/LabelPrinterMethodChannel.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/LabelPrinterMethodChannel.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/MFLabelPrinter.java</url>
+          <line>215</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/BitMapUtilNewTime.java</url>
+          <line>307</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

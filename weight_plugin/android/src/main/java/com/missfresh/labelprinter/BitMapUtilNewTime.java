@@ -305,7 +305,7 @@ public class BitMapUtilNewTime {
             canvas.drawText(spec, 4 * subTitleTextSize+ marginLeft6, line1Height, contentTextPaint);
         }
 //        canvas.drawText("净重", (int) (maxWidth / 2) , line1Height, subTitlePaint);
-     if(weightRefundFlag != null && weightRefundFlag.toCharArray().length!=0){
+     if(weightRefundFlag != null && weightRefundFlag.toCharArray().length!=0 && weightRefundFlag.equals("1")){
          canvas.drawText("如重量不足,将自动退还差额", (int) (maxWidth / 2-10) , line1Height, littleContentTextPaint);
      }
 
