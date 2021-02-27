@@ -21,9 +21,10 @@ class WeighPrintModel {
   String batchCode;
 //真实生产日期
   String packageTime;
+  String weightRefundFlag;
 
   WeighPrintModel(this.skuName, this.skuSpec, this.netWeigh, this.createTime,
-      this.storeCondition, this.materialCode, this.skuCode, this.snCode,{this.batchCode,this.packageTime});
+      this.storeCondition, this.materialCode, this.skuCode, this.snCode,this.weightRefundFlag,{this.batchCode,this.packageTime});
 
 
 

@@ -10,28 +10,16 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec79c47f-fd96-4cd5-b2c8-aa6e35a1ac2a" name="Default Changelist" comment="refactor:0.0.30发版,样式调整">
+    <list default="true" id="ec79c47f-fd96-4cd5-b2c8-aa6e35a1ac2a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/libs/flutter.jar.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/BitMapUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/BitMapUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/BitMapUtilNewTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/BitMapUtilNewTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/LabelPrinterMethodChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/LabelPrinterMethodChannel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/MFLabelPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/labelprinter/MFLabelPrinter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/missfresh/weight/WeightConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/weight_constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/weight_constants.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/weigh_print_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/weigh_print_model.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="192.168.50.57:5555" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CL8A0020270136" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -304,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605840874782</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="refactor:0.0.31发版,增加状态判断,是否打印退款">
+      <created>1614397810358</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1614397810358</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -351,7 +346,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor:0.0.6发版,解决jar找不到" />
     <MESSAGE value="refactor:0.0.7发版" />
     <MESSAGE value="refactor:0.0.8发版,改回原来" />
     <MESSAGE value="refactor:0.0.9发版,切换到3.0.1,使用compileOnly" />
@@ -376,17 +370,18 @@
     <MESSAGE value="refactor:0.0.28发版增加两种方法" />
     <MESSAGE value="refactor:0.0.29发版,去除净重" />
     <MESSAGE value="refactor:0.0.30发版,样式调整" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor:0.0.30发版,样式调整" />
+    <MESSAGE value="refactor:0.0.31发版,增加状态判断,是否打印退款" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor:0.0.31发版,增加状态判断,是否打印退款" />
   </component>
   <component name="WindowStateProjectService">
     <state x="489" y="319" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607325102373">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="489" y="319" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1607325102373" />
-    <state x="325" y="59" key="CommitChangelistDialog2" timestamp="1614397712533">
+    <state x="325" y="59" key="CommitChangelistDialog2" timestamp="1614412571894">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="325" y="59" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1614397712533" />
+    <state x="325" y="59" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1614412571894" />
     <state x="100" y="84" width="1480" height="850" key="DiffContextDialog" timestamp="1605840887696">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -414,14 +409,14 @@
     </state>
     <state width="1628" height="476" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1606733649592" />
     <state width="1628" height="476" key="GridCell.Tab.0.right/0.23.1680.960@0.0.1680.1050" timestamp="1606792263707" />
-    <state x="340" y="202" key="Vcs.Push.Dialog.v2" timestamp="1605840889378">
+    <state x="340" y="202" key="Vcs.Push.Dialog.v2" timestamp="1614397812240">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="340" y="202" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1605840889378" />
-    <state x="594" y="431" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1614397704793">
+    <state x="340" y="202" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1614397812240" />
+    <state x="594" y="431" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1614399593281">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="594" y="431" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1614397704793" />
+    <state x="594" y="431" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1614399593281" />
     <state x="443" y="230" width="793" height="590" key="find.popup" timestamp="1614397481256">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
